@@ -76,18 +76,9 @@ every season.
               </div>
             </div>
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-sky-400">24/7</div>
-              <div className="text-sm text-sky-300 mt-1">Emergency</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-sky-400">Licensed</div>
-              <div className="text-sm text-sky-300 mt-1">& insured</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-sky-400">15K+</div>
-              <div className="text-sm text-sky-300 mt-1">Systems serviced</div>
-            </div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-sky-400">24/7</div><div className="text-sm text-sky-300 mt-1">Emergency</div></div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-sky-400">Licensed</div><div className="text-sm text-sky-300 mt-1">& insured</div></div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-sky-400">15K+</div><div className="text-sm text-sky-300 mt-1">Systems serviced</div></div>
             </div>
           </div>
         </section>
@@ -99,36 +90,30 @@ every season.
               <h2 id="services-heading" className="text-4xl md:text-5xl font-bold">Our Services</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">❄️</div>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">❄️</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">AC Repair</h3>
-              <p className="text-sky-300 leading-relaxed">Fast diagnosis and repair.</p>
-            </article>
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🔥</div>
+              <p className="text-sky-300 leading-relaxed">Fast diagnosis and repair.</p></article>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🔥</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">Heating</h3>
-              <p className="text-sky-300 leading-relaxed">Furnace and heat pump service.</p>
-            </article>
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">⚙️</div>
+              <p className="text-sky-300 leading-relaxed">Furnace and heat pump service.</p></article>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">⚙️</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">Installation</h3>
-              <p className="text-sky-300 leading-relaxed">New system installation.</p>
-            </article>
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🌀</div>
+              <p className="text-sky-300 leading-relaxed">New system installation.</p></article>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🌀</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">Ductwork</h3>
-              <p className="text-sky-300 leading-relaxed">Duct cleaning and sealing.</p>
-            </article>
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">💨</div>
+              <p className="text-sky-300 leading-relaxed">Duct cleaning and sealing.</p></article>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">💨</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">Air Quality</h3>
-              <p className="text-sky-300 leading-relaxed">Filtration and purification.</p>
-            </article>
-            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🔧</div>
+              <p className="text-sky-300 leading-relaxed">Filtration and purification.</p></article>
+            <article className="bg-sky-900 border border-sky-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🔧</div>
               <h3 className="text-xl font-bold mb-3 text-sky-50">Maintenance</h3>
-              <p className="text-sky-300 leading-relaxed">Seasonal tune-up plans.</p>
-            </article>
+              <p className="text-sky-300 leading-relaxed">Seasonal tune-up plans.</p></article>
             </div>
           </div>
         </section>
@@ -142,28 +127,16 @@ every season.
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-sky-900 border border-sky-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-sky-400/20 flex items-center justify-center text-2xl font-bold text-sky-400">TH</div>
-              <h3 className="font-bold text-sky-50">Tom Henderson</h3>
-              <p className="text-sm text-sky-400">Lead Tech</p>
-              <p className="text-sm text-sky-300 mt-1">NATE certified</p>
-            </div>
+              <h3 className="font-bold text-sky-50">Tom Henderson</h3><p className="text-sm text-sky-400">Lead Tech</p><p className="text-sm text-sky-300 mt-1">NATE certified</p></div>
             <div className="bg-sky-900 border border-sky-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-sky-400/20 flex items-center justify-center text-2xl font-bold text-sky-400">CM</div>
-              <h3 className="font-bold text-sky-50">Carlos Mendez</h3>
-              <p className="text-sm text-sky-400">Install Manager</p>
-              <p className="text-sm text-sky-300 mt-1">EPA 608</p>
-            </div>
+              <h3 className="font-bold text-sky-50">Carlos Mendez</h3><p className="text-sm text-sky-400">Install Manager</p><p className="text-sm text-sky-300 mt-1">EPA 608</p></div>
             <div className="bg-sky-900 border border-sky-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-sky-400/20 flex items-center justify-center text-2xl font-bold text-sky-400">SW</div>
-              <h3 className="font-bold text-sky-50">Sarah Walsh</h3>
-              <p className="text-sm text-sky-400">Service Lead</p>
-              <p className="text-sm text-sky-300 mt-1">15yr HVAC</p>
-            </div>
+              <h3 className="font-bold text-sky-50">Sarah Walsh</h3><p className="text-sm text-sky-400">Service Lead</p><p className="text-sm text-sky-300 mt-1">15yr HVAC</p></div>
             <div className="bg-sky-900 border border-sky-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-sky-400/20 flex items-center justify-center text-2xl font-bold text-sky-400">JK</div>
-              <h3 className="font-bold text-sky-50">James Kim</h3>
-              <p className="text-sm text-sky-400">IAQ Specialist</p>
-              <p className="text-sm text-sky-300 mt-1">Air quality expert</p>
-            </div>
+              <h3 className="font-bold text-sky-50">James Kim</h3><p className="text-sm text-sky-400">IAQ Specialist</p><p className="text-sm text-sky-300 mt-1">Air quality expert</p></div>
             </div>
           </div>
         </section>
@@ -176,26 +149,14 @@ every season.
             </div>
             <div className="space-y-4">
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-sky-50">
-                Emergency?
-                <span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-sky-300 text-sm leading-relaxed">24/7 response, 90min arrival.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-sky-50">Emergency?<span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-sky-300 text-sm leading-relaxed">24/7 response, 90min arrival.</p></details>
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-sky-50">
-                Financing?
-                <span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-sky-300 text-sm leading-relaxed">0% for 60 months on new systems.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-sky-50">Financing?<span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-sky-300 text-sm leading-relaxed">0% for 60 months on new systems.</p></details>
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-sky-50">
-                Maintenance?
-                <span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-sky-300 text-sm leading-relaxed">$199/year seasonal tune-up plan.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-sky-50">Maintenance?<span className="ml-4 text-sky-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-sky-300 text-sm leading-relaxed">$199/year seasonal tune-up plan.</p></details>
             </div>
           </div>
         </section>
@@ -207,18 +168,9 @@ every season.
                 <p className="text-sky-400 text-sm tracking-widest uppercase mb-3">Get In Touch</p>
                 <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold mb-6">Schedule Service</h2>
                 <div className="space-y-6 text-sky-300">
-                  <div>
-                    <div className="font-bold text-sky-50">Phone</div>
-                    <a href="tel:(555) 901-2346" className="hover:text-sky-400 transition-colors">(555) 901-2346</a>
-                  </div>
-                  <div>
-                    <div className="font-bold text-sky-50">Address</div>
-                    <p className="whitespace-pre-line">Serving Metro Dallas, TX</p>
-                  </div>
-                  <div>
-                    <div className="font-bold text-sky-50">Hours</div>
-                    <p>24/7 Emergency Service</p>
-                  </div>
+                  <div><div className="font-bold text-sky-50">Phone</div><a href="tel:(555) 901-2346" className="hover:text-sky-400">(555) 901-2346</a></div>
+                  <div><div className="font-bold text-sky-50">Address</div><p>Serving Metro Dallas, TX</p></div>
+                  <div><div className="font-bold text-sky-50">Hours</div><p>24/7 Emergency Service</p></div>
                 </div>
               </div>
               <div>
