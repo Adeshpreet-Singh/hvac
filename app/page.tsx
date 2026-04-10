@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="py-24 bg-slate-900/30" aria-labelledby="services-heading">
+        <section id="services" className="reveal py-24 bg-slate-900/30" aria-labelledby="services-heading">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16"><h2 id="services-heading" className="text-4xl font-bold">Services</h2></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="py-16">
+        <section id="contact" className="reveal py-16">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-slate-800/50 border border-slate-800 rounded-xl p-8"><div className="text-3xl mb-3">📞</div><div className="font-bold">Emergency</div><a href="tel:(555) 901-2346" className="text-sky-400 text-xl font-bold hover:underline">(555) 901-2346</a></div>
             <div className="bg-slate-800/50 border border-slate-800 rounded-xl p-8"><div className="text-3xl mb-3">📍</div><div className="font-bold">Service Area</div><p className="text-slate-400">Metro Dallas, TX<br />30-mile radius</p></div>
