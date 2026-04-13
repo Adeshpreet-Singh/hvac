@@ -131,20 +131,20 @@ export default function Home() {
             <p className="text-base tracking-[0.2em] text-slate-400 uppercase">HVAC — Dallas, TX</p>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollTo('services')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Services</button>
-            <button onClick={() => scrollTo('plans')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Plans</button>
-            <button onClick={() => scrollTo('testimonials')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Reviews</button>
-            <button onClick={() => scrollTo('faq')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">FAQ</button>
-            <button onClick={() => scrollTo('contact')} className="btn bg-sky-600 text-white px-5 py-2.5 text-base rounded-full hover:bg-sky-500 transition-colors">Schedule Service</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('services')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Services</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('plans')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Plans</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('testimonials')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Reviews</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('faq')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">FAQ</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('contact')} className="btn bg-sky-600 text-white px-5 py-2.5 text-base rounded-full hover:bg-sky-500 transition-colors">Schedule Service</button>
           </div>
-          <button className="md:hidden text-slate-400" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <button style={{ cursor: "pointer" }} className="md:hidden text-slate-400" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
           </button>
         </div>
         {menuOpen && (
           <div className="md:hidden border-t border-slate-800 bg-[#0c1929] px-6 py-4 space-y-3">
             {['services', 'plans', 'testimonials', 'faq', 'contact'].map((id) => (
-              <button key={id} onClick={() => scrollTo(id)} className="btn block w-full text-left text-slate-300 hover:text-sky-400 py-2 capitalize">{id}</button>
+              <button style={{ cursor: "pointer" }} key={id} onClick={() => scrollTo(id)} className="btn block w-full text-left text-slate-300 hover:text-sky-400 py-2 capitalize">{id}</button>
             ))}
           </div>
         )}
@@ -163,7 +163,7 @@ export default function Home() {
                 Expert heating, cooling, and indoor air quality services for residential and commercial properties across the Dallas-Fort Worth metroplex. Available 24/7 for emergencies.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button onClick={() => scrollTo('contact')} className="btn btn text-base px-8 py-4">Schedule Free Estimate</button>
+                <button style={{ cursor: "pointer" }} onClick={() => scrollTo('contact')} className="btn btn text-base px-8 py-4">Schedule Free Estimate</button>
                 <a href="tel:(555) 901-2346" className="btn-outline text-base px-8 py-4">Emergency Call</a>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button onClick={() => scrollTo('contact')} className={`w-full py-3 rounded-lg font-semibold text-sm transition-all ${plan.highlight ? 'btn' : 'btn-outline'}`}>
+                  <button style={{ cursor: "pointer" }} onClick={() => scrollTo('contact')} className={`w-full py-3 rounded-lg font-semibold text-sm transition-all ${plan.highlight ? 'btn' : 'btn-outline'}`}>
                     Enroll Now
                   </button>
                 </div>
@@ -367,7 +367,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-16 text-center">
-              <div className="card">
+              <div className="card flex flex-col">
                 <div className="text-4xl mb-3">📞</div>
                 <div className="font-bold mb-1">Call Us</div>
                 <a href="tel:(555) 901-2346" className="text-sky-400 text-xl font-bold hover:underline">(555) 901-2346</a>
@@ -394,23 +394,23 @@ export default function Home() {
                   <div className="text-6xl mb-4">✅</div>
                   <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
                   <p className="text-slate-400">Your request has been submitted. We&apos;ll contact you within 30 minutes during business hours.</p>
-                  <button onClick={() => setSubmitted(false)} className="btn btn mt-6">Submit Another Request</button>
+                  <button style={{ cursor: "pointer" }} onClick={() => setSubmitted(false)} className="btn btn mt-6">Submit Another Request</button>
                 </div>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold mb-2">Full Name *</label>
-                      <input type="text" required placeholder="John Smith" className="w-full border border-gray-300 " />
+                      <input type="text" required placeholder="John Smith" className="w-full border border-gray-300  border-2 border-current/20" />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold mb-2">Phone Number *</label>
-                      <input type="tel" required placeholder="(555) 123-4567" className="w-full border border-gray-300 " />
+                      <input type="tel" required placeholder="(555) 123-4567" className="w-full border border-gray-300  border-2 border-current/20" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-semibold mb-2">Email Address *</label>
-                    <input type="email" required placeholder="john@example.com" className="w-full border border-gray-300 " />
+                    <input type="email" required placeholder="john@example.com" className="w-full border border-gray-300  border-2 border-current/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold mb-2">Service Needed *</label>
@@ -429,13 +429,13 @@ export default function Home() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold mb-2">Preferred Date</label>
-                    <input type="date" className="w-full border border-gray-300 " />
+                    <input type="date" className="w-full border border-gray-300  border-2 border-current/20" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold mb-2">Tell Us More</label>
                     <textarea rows={4} placeholder="Describe your HVAC issue or service request..." className="w-full border border-gray-300 "></textarea>
                   </div>
-                  <button type="submit" className="btn w-full text-center text-base py-4">Submit Request — It&apos;s Free</button>
+                  <button style={{ cursor: "pointer" }} type="submit" className="btn w-full text-center text-base py-4">Submit Request — It&apos;s Free</button>
                   <p className="text-slate-400 text-xs text-center">By submitting, you agree to be contacted about your service request. We never share your information.</p>
                 </form>
               )}
