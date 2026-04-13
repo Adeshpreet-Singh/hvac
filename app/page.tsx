@@ -131,11 +131,11 @@ export default function Home() {
             <p className="text-base tracking-[0.2em] text-slate-400 uppercase">HVAC — Dallas, TX</p>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <button className="btn" onClick={() => scrollTo('services')} className="text-base text-slate-400 hover:text-sky-400 transition-colors">Services</button>
-            <button className="btn" onClick={() => scrollTo('plans')} className="text-base text-slate-400 hover:text-sky-400 transition-colors">Plans</button>
-            <button className="btn" onClick={() => scrollTo('testimonials')} className="text-base text-slate-400 hover:text-sky-400 transition-colors">Reviews</button>
-            <button className="btn" onClick={() => scrollTo('faq')} className="text-base text-slate-400 hover:text-sky-400 transition-colors">FAQ</button>
-            <button className="btn" onClick={() => scrollTo('contact')} className="bg-sky-600 text-white px-5 py-2.5 text-base rounded-full hover:bg-sky-500 transition-colors">Schedule Service</button>
+            <button onClick={() => scrollTo('services')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Services</button>
+            <button onClick={() => scrollTo('plans')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Plans</button>
+            <button onClick={() => scrollTo('testimonials')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">Reviews</button>
+            <button onClick={() => scrollTo('faq')} className="btn text-base text-slate-400 hover:text-sky-400 transition-colors">FAQ</button>
+            <button onClick={() => scrollTo('contact')} className="btn bg-sky-600 text-white px-5 py-2.5 text-base rounded-full hover:bg-sky-500 transition-colors">Schedule Service</button>
           </div>
           <button className="md:hidden text-slate-400" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
@@ -144,7 +144,7 @@ export default function Home() {
         {menuOpen && (
           <div className="md:hidden border-t border-slate-800 bg-[#0c1929] px-6 py-4 space-y-3">
             {['services', 'plans', 'testimonials', 'faq', 'contact'].map((id) => (
-              <button className="btn" key={id} onClick={() => scrollTo(id)} className="block w-full text-left text-slate-300 hover:text-sky-400 py-2 capitalize">{id}</button>
+              <button key={id} onClick={() => scrollTo(id)} className="btn block w-full text-left text-slate-300 hover:text-sky-400 py-2 capitalize">{id}</button>
             ))}
           </div>
         )}
@@ -163,7 +163,7 @@ export default function Home() {
                 Expert heating, cooling, and indoor air quality services for residential and commercial properties across the Dallas-Fort Worth metroplex. Available 24/7 for emergencies.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn" onClick={() => scrollTo('contact')} className="btn text-base px-8 py-4">Schedule Free Estimate</button>
+                <button onClick={() => scrollTo('contact')} className="btn btn text-base px-8 py-4">Schedule Free Estimate</button>
                 <a href="tel:(555) 901-2346" className="btn-outline text-base px-8 py-4">Emergency Call</a>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button className="btn" onClick={() => scrollTo('contact')} className={`w-full py-3 rounded-lg font-semibold text-sm transition-all ${plan.highlight ? 'btn' : 'btn-outline'}`}>
+                  <button onClick={() => scrollTo('contact')} className={`w-full py-3 rounded-lg font-semibold text-sm transition-all ${plan.highlight ? 'btn' : 'btn-outline'}`}>
                     Enroll Now
                   </button>
                 </div>
@@ -394,7 +394,7 @@ export default function Home() {
                   <div className="text-6xl mb-4">✅</div>
                   <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
                   <p className="text-slate-400">Your request has been submitted. We&apos;ll contact you within 30 minutes during business hours.</p>
-                  <button className="btn" onClick={() => setSubmitted(false)} className="btn mt-6">Submit Another Request</button>
+                  <button onClick={() => setSubmitted(false)} className="btn btn mt-6">Submit Another Request</button>
                 </div>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5">
