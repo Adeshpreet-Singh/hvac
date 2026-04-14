@@ -1,483 +1,349 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export default function Home() {
-  const [submitted, setSubmitted] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function HVACPage() {
   const [bannerVisible, setBannerVisible] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState('comfort');
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', service: '', message: '' });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-scale, .stagger-children').forEach((el) => {
+      observerRef.current?.observe(el);
+    });
+    return () => observerRef.current?.disconnect();
   }, []);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000);
   };
 
-  const services = [
-    {
-      name: 'AC Installation',
-      image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
-      price: 'From $3,200',
-      desc: 'High-efficiency central air conditioning systems sized and installed by NATE-certified technicians. We carry top brands including Carrier, Trane, Lennox, and Daikin with full manufacturer warranties up to 12 years. Every installation includes load calculations, ductwork evaluation, and a complete post-install performance test to ensure your new system runs at peak SEER2 efficiency from day one.',
-    },
-    {
-      name: 'AC Repair',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80',
-      price: 'From $89',
-      desc: 'Fast, accurate diagnosis and repair of all air conditioning makes and models. Our trucks carry over 500 OEM parts so most repairs are completed in a single visit. We service compressors, evaporator coils, refrigerant leaks, electrical faults, thermostat issues, and condensate drain problems. Emergency AC repair is available 24 hours a day, 7 days a week, including holidays.',
-    },
-    {
-      name: 'Furnace Installation',
-      image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
-      price: 'From $2,800',
-      desc: 'Expert gas and electric furnace installation for new construction and replacements. We help you choose the right AFUE rating for your budget and home size, from standard 80% models to ultra-high-efficiency 98% condensing units. Every install includes gas line inspection, carbon monoxide testing, airflow balancing, and a comprehensive safety check. Financing available with 0% APR.',
-    },
-    {
-      name: 'Heat Pump Systems',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80',
-      price: 'From $4,500',
-      desc: 'Installation, repair, and maintenance of air-source and ground-source heat pump systems. Heat pumps provide both heating and cooling in a single, highly efficient unit — reducing energy bills by up to 50% compared to traditional systems. We install variable-speed inverter models that maintain consistent comfort year-round. Ask about federal tax credits and utility rebates.',
-    },
-  ];
-
-  const plans = [
-    {
-      name: 'Basic',
-      price: '$15',
-      period: '/mo',
-      desc: 'Essential seasonal tune-ups for budget-conscious homeowners.',
-      features: [
-        '1 spring AC tune-up',
-        '1 fall heating tune-up',
-        '21-point system inspection',
-        '10% discount on repairs',
-        'Priority scheduling',
-        'No overtime charges',
-      ],
-      highlight: false,
-    },
-    {
-      name: 'Comfort',
-      price: '$25',
-      period: '/mo',
-      desc: 'Our most popular plan — full coverage for year-round peace of mind.',
-      features: [
-        '2 seasonal tune-ups (spring & fall)',
-        '21-point system inspection each visit',
-        '15% discount on all repairs',
-        'Priority same-day scheduling',
-        'No overtime or after-hours fees',
-        'Free filter replacements (standard sizes)',
-        'Annual ductwork visual inspection',
-      ],
-      highlight: true,
-    },
-    {
-      name: 'Premium',
-      price: '$39',
-      period: '/mo',
-      desc: 'Maximum protection, maximum savings — the ultimate worry-free plan.',
-      features: [
-        '2 seasonal tune-ups (spring & fall)',
-        '21-point system inspection each visit',
-        '20% discount on all repairs',
-        'VIP same-day emergency service',
-        'No overtime or after-hours fees',
-        'Free filter replacements (all sizes)',
-        'Annual ductwork inspection',
-        'Indoor air quality assessment',
-        '1-year extended labor warranty',
-        'Free refrigerant top-offs (up to 2 lbs)',
-      ],
-      highlight: false,
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Jennifer M.',
-      location: 'Plano, TX',
-      rating: 5,
-      text: 'ArcticAir replaced our 20-year-old AC system in one day. The crew was professional, clean, and explained every step. Our energy bill dropped 40% the first month. Could not be happier with the new Carrier unit they installed.',
-    },
-    {
-      name: 'Robert & Linda K.',
-      location: 'Richardson, TX',
-      rating: 5,
-      text: 'We called at 10 PM on a Saturday night in July when our AC died. A technician arrived within 90 minutes and had us cooling again by midnight. They did not charge extra for the weekend emergency call. ArcticAir is the only HVAC company we will ever use.',
-    },
-    {
-      name: 'Marcus T.',
-      location: 'Frisco, TX',
-      rating: 5,
-      text: 'I have been on their Comfort maintenance plan for three years. They show up on time, do thorough inspections, and caught a failing capacitor before it could damage our compressor. Saved us a $2,000 repair. Honest, reliable, and fairly priced.',
-    },
-  ];
-
-  const serviceAreas = [
-    'Dallas', 'Plano', 'Frisco', 'Richardson', 'McKinney', 'Allen',
-    'Garland', 'Mesquite', 'Irving', 'Grand Prairie', 'Carrollton',
-    'Lewisville', 'Flower Mound', 'Denton', 'The Colony',
-    'Prosper', 'Celina', 'Little Elm', 'Coppell', 'Southlake', 'Keller',
-  ];
-
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* === EMERGENCY BANNER === */}
+    <>
+      {/* ====== EMERGENCY BANNER ====== */}
       {bannerVisible && (
         <div className="emergency-banner">
           <div className="emergency-banner-inner">
-            <span className="emergency-pulse-dot" />
-            <span className="emergency-text">
-              24/7 EMERGENCY SERVICE — NO OVERTIME FEES — CALL NOW:{' '}
-              <a href="tel:(555) 901-2346" className="emergency-phone">
-                (555) 901-2346
-              </a>
-            </span>
-            <button
-              onClick={() => setBannerVisible(false)}
-              className="emergency-close"
-              aria-label="Close banner"
-            >
-              x
-            </button>
+            <div className="emergency-pulse-dot" />
+            <p className="emergency-text">
+              AC or Heat Out? Call <a href="tel:18005553456" className="emergency-phone">(800) 555-3456</a> for 24/7 Emergency HVAC Service
+            </p>
+            <button className="emergency-close" onClick={() => setBannerVisible(false)}>×</button>
           </div>
         </div>
       )}
 
-      {/* === NAVIGATION === */}
-      <nav className={`nav-bar ${bannerVisible ? 'nav-with-banner' : 'nav-no-banner'}`}>
-        <div className="nav-inner">
-          <div className="nav-brand">
-            <h1 className="nav-logo">ARCTICAIR</h1>
-            <p className="nav-tagline">HVAC &bull; DALLAS, TX</p>
+      {/* ====== NAVIGATION ====== */}
+      <nav className="nav-bar" style={{ position: bannerVisible ? 'fixed' : 'sticky', top: bannerVisible ? '42px' : 0, zIndex: 50, background: 'rgba(10,10,10,0.92)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--dark-border)', padding: '16px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.15em', color: 'var(--cyan)', lineHeight: 1 }}>ARCTICAIR</div>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.65rem', letterSpacing: '0.25em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Climate Solutions</div>
           </div>
-          <div className="nav-links-desktop">
-            <button onClick={() => scrollTo('services')} className="nav-link">Services</button>
-            <button onClick={() => scrollTo('plans')} className="nav-link">Plans</button>
-            <button onClick={() => scrollTo('testimonials')} className="nav-link">Reviews</button>
-            <button onClick={() => scrollTo('contact')} className="nav-link nav-cta">Free Estimate</button>
-          </div>
-          <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
-            </svg>
-          </button>
-        </div>
-        {menuOpen && (
-          <div className="nav-mobile-menu">
-            {['services', 'plans', 'testimonials', 'contact'].map((id) => (
-              <button key={id} onClick={() => scrollTo(id)} className="nav-mobile-link">
-                {id === 'contact' ? 'Free Estimate' : id.charAt(0).toUpperCase() + id.slice(1)}
-              </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            {['Services', 'Maintenance', 'Why Us', 'Reviews', 'Contact'].map((item) => (
+              <button key={item} style={{ fontFamily: 'var(--font-heading)', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}>{item}</button>
             ))}
+            <button className="btn-primary" style={{ padding: '10px 24px', borderRadius: '3px', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Get Quote</button>
           </div>
-        )}
+        </div>
       </nav>
 
-      <main>
-        {/* === HERO SECTION === */}
-        <section className="hero-section">
-          <div className="hero-glow" />
-          <div className="hero-inner">
-            <div className="hero-content">
-              <span className="badge">Licensed &amp; Insured — Est. 2001</span>
-              <h2 className="hero-headline">
-                YOUR COMFORT,<br />OUR <span className="text-cyan">MISSION.</span>
-              </h2>
-              <p className="hero-sub">
-                Expert heating, cooling, and indoor air quality services for residential and commercial properties across the Dallas-Fort Worth metroplex. Available 24/7 for emergencies with no overtime fees, ever.
-              </p>
-              <div className="hero-actions">
-                <button onClick={() => scrollTo('contact')} className="btn-primary">
-                  Schedule Free Estimate
-                </button>
-                <a href="tel:(555) 901-2346" className="btn-outline">
-                  Emergency Call
-                </a>
-              </div>
+      {/* ====== HERO ====== */}
+      <section className="hero-section" style={{ paddingTop: bannerVisible ? '160px' : '100px', paddingBottom: '80px', position: 'relative', overflow: 'hidden', background: 'var(--dark)' }}>
+        <div style={{ position: 'absolute', top: '-30%', left: '50%', transform: 'translateX(-50%)', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%)', pointerEvents: 'none', animation: 'hero-glow-pulse 6s ease-in-out infinite alternate' }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center', position: 'relative', zIndex: 1 }}>
+          <div>
+            <span className="badge">NATE Certified Technicians</span>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '4.5rem', fontWeight: 700, lineHeight: 0.92, letterSpacing: '0.02em', marginTop: '20px', marginBottom: '28px' }}>
+              PERFECT <span style={{ color: 'var(--cyan)' }}>CLIMATE</span>, YEAR ROUND
+            </h1>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '480px', lineHeight: 1.7, marginBottom: '1rem' }}>
+              ArcticAir HVAC delivers precision climate control for homes and businesses across the region. From high-efficiency furnace installations to smart thermostat programming, our certified technicians optimize your comfort while minimizing energy costs. We work with all major brands and systems.
+            </p>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '480px', lineHeight: 1.7, marginBottom: '36px' }}>
+              Our comprehensive approach includes load calculations, ductwork analysis, indoor air quality assessments, and ongoing maintenance plans that keep your system running at peak performance for years to come. We believe every family deserves clean, comfortable air at a price they can afford, which is why we offer transparent pricing, flexible financing, and a satisfaction guarantee on every job.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+              <button className="btn-primary">Schedule Service</button>
+              <button className="btn-outline">View Maintenance Plans</button>
             </div>
-            <div className="hero-stats">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '3rem' }}>
               {[
-                { value: '25+', label: 'Years in Business' },
-                { value: '10K+', label: 'Homes Served' },
-                { value: 'Same Day', label: 'Service Available' },
-                { value: '24/7', label: 'Emergency Line' },
-                { value: 'NATE', label: 'Certified Techs' },
-                { value: '$0', label: 'Free Estimates' },
-              ].map((stat, i) => (
-                <div key={i} className="stat-card">
-                  <div className="stat-value">{stat.value}</div>
-                  <div className="stat-label">{stat.label}</div>
+                { val: '22+', label: 'Years Experience' },
+                { val: '8K+', label: 'Systems Installed' },
+                { val: '4.9★', label: 'Google Rating' },
+              ].map((s) => (
+                <div key={s.label} style={{ background: 'var(--dark-card)', border: '1px solid var(--dark-border)', borderRadius: '6px', padding: '24px 16px', textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--cyan)', lineHeight: 1 }}>{s.val}</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '6px' }}>{s.label}</div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* === SERVICES WITH IMAGES === */}
-        <section id="services" className="reveal services-section" aria-labelledby="services-heading">
-          <div className="section-container">
-            <div className="section-header">
-              <span className="badge">What We Do</span>
-              <h2 id="services-heading" className="section-title">Our HVAC Services</h2>
-              <p className="section-subtitle">
-                From emergency repairs to complete system installations, ArcticAir delivers fast, honest, and professional HVAC services backed by industry-leading warranties and a 100% satisfaction guarantee on every job we perform.
-              </p>
-            </div>
-            <div className="services-grid">
-              {services.map((s, i) => (
-                <div key={i} className="service-card">
-                  <div className="service-card-image">
-                    <img src={s.image} alt={s.name} loading="lazy" />
-                    <div className="service-card-overlay" />
-                    <span className="service-price-tag">{s.price}</span>
-                  </div>
-                  <div className="service-card-body">
-                    <h3 className="service-card-title">{s.name}</h3>
-                    <p className="service-card-desc">{s.desc}</p>
-                    <button onClick={() => scrollTo('contact')} className="service-card-link">
-                      Get a Quote &rarr;
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div style={{ position: 'relative', borderRadius: '8px', overflow: 'hidden' }}>
+            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&h=700&fit=crop" alt="HVAC technician" style={{ width: '100%', height: '32rem', objectFit: 'cover', display: 'block' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 60%, rgba(10,10,10,0.7) 100%)', pointerEvents: 'none' }} />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* === MAINTENANCE PLANS === */}
-        <section id="plans" className="reveal plans-section" aria-labelledby="plans-heading">
-          <div className="section-container">
-            <div className="section-header">
-              <span className="badge">Save &amp; Protect</span>
-              <h2 id="plans-heading" className="section-title">Maintenance Plans</h2>
-              <p className="section-subtitle">
-                Keep your HVAC system running at peak performance year-round with our preventive maintenance plans. Members enjoy priority service, discounted repairs, extended equipment life, and complete peace of mind knowing their comfort system is always in expert hands.
-              </p>
-            </div>
-            <div className="plans-grid">
-              {plans.map((plan, i) => (
-                <div key={i} className={`plan-card ${plan.highlight ? 'plan-highlighted' : ''}`}>
-                  {plan.highlight && <div className="plan-popular-badge">Most Popular</div>}
-                  <div className="plan-header">
-                    <h3 className="plan-name">{plan.name}</h3>
-                    <div className="plan-price-row">
-                      <span className="plan-price">{plan.price}</span>
-                      <span className="plan-period">{plan.period}</span>
+      {/* ====== SERVICES ====== */}
+      <section id="services" style={{ padding: '80px 24px', background: 'rgba(0,229,255,0.02)', borderTop: '1px solid rgba(0,229,255,0.06)', borderBottom: '1px solid rgba(0,229,255,0.06)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span className="badge">Full-Service HVAC</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px', marginBottom: '16px' }}>Heating, Cooling & Air Quality</h2>
+            <p style={{ color: 'var(--text-secondary)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7, fontSize: '0.95rem' }}>From the hottest summer days to the coldest winter nights, ArcticAir keeps your indoor environment perfectly comfortable. Our comprehensive HVAC services cover every aspect of your climate control needs.</p>
+          </div>
+          <div className="stagger-children" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+            {[
+              { icon: '❄️', name: 'Air Conditioning', desc: 'Central AC installation, repair, and replacement. We service all brands including Carrier, Trane, Lennox, and Rheem. High-SEER units available for maximum energy savings. Our technicians perform load calculations to ensure proper sizing, preventing short cycling and ensuring consistent comfort throughout your home.', img: 'https://images.unsplash.com/photo-1631545806609-d2e4c3befed5?w=600&h=400&fit=crop' },
+              { icon: '🔥', name: 'Heating Systems', desc: 'Furnace and boiler installation, repair, and maintenance. Gas, electric, and oil systems serviced by certified technicians. High-efficiency options up to 98% AFUE rating available. We also install radiant floor heating and heat pump systems for year-round comfort with lower operating costs.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop' },
+              { icon: '🌡️', name: 'Heat Pump Systems', desc: 'Energy-efficient heating and cooling in one system. Air-source and ground-source heat pump installation with expert sizing and design. Perfect for moderate climates and available with federal tax credits and local utility rebates.', img: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop' },
+              { icon: '💨', name: 'Indoor Air Quality', desc: 'Breathe cleaner air with whole-home air purifiers, UV germicidal lights, humidifiers, dehumidifiers, and advanced filtration systems including HEPA and media filters. We test your indoor air quality and recommend targeted solutions.', img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop' },
+              { icon: '🔧', name: 'Ductwork Services', desc: 'Duct cleaning, sealing, insulation, and new ductwork installation. Properly designed and sealed ductwork can improve system efficiency by up to 30% and eliminate hot/cold spots throughout your home.', img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop' },
+              { icon: '🏠', name: 'Smart Thermostats', desc: 'Smart thermostat installation and programming including Nest, Ecobee, and Honeywell. Zoning systems for room-by-room temperature control. Wi-Fi enabled controls for remote access and energy monitoring from your phone.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop' },
+            ].map((service) => (
+              <div key={service.name} className="card" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0', padding: '0', overflow: 'hidden', borderRadius: '8px' }}>
+                <div style={{ position: 'relative', overflow: 'hidden', minHeight: '280px' }}>
+                  <img src={service.img} alt={service.name} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, transparent 60%, var(--dark-card) 100%)' }} />
+                </div>
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{service.icon}</span>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.75rem' }}>{service.name}</h3>
+                  <p style={{ fontSize: '0.85rem', lineHeight: 1.65, color: 'var(--text-secondary)', flex: 1 }}>{service.desc}</p>
+                  <button style={{ marginTop: '1rem', background: 'none', border: 'none', color: 'var(--cyan)', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.12em', cursor: 'pointer', textAlign: 'left', padding: 0 }}>Learn More →</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ====== MAINTENANCE PLANS ====== */}
+      <section id="maintenance" style={{ padding: '80px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span className="badge">Maintenance Plans</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px', marginBottom: '16px' }}>Protect Your Investment</h2>
+            <p style={{ color: 'var(--text-secondary)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7, fontSize: '0.95rem' }}>Regular maintenance extends equipment life, reduces energy bills by up to 30%, and prevents costly breakdowns. Choose the plan that fits your needs and budget.</p>
+          </div>
+          <div className="stagger-children" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            {[
+              { name: 'Basic', price: '$14.99/mo', annual: '$179/yr', desc: 'Essential seasonal tune-ups', features: ['1 spring AC tune-up', '1 fall heating tune-up', 'Priority scheduling', '15% off repairs', 'Filter reminders', 'No overtime fees'], highlight: false },
+              { name: 'Comfort', price: '$24.99/mo', annual: '$299/yr', desc: 'Complete care coverage', features: ['2 seasonal tune-ups', 'Comprehensive cleaning', '20% off all repairs', 'Free diagnostic visits', '1-year parts warranty', 'Priority emergency service', 'Thermostat calibration', 'Refrigerant check'], highlight: true },
+              { name: 'Elite', price: '$39.99/mo', annual: '$479/yr', desc: 'Total peace of mind', features: ['4 quarterly visits', '25% off all repairs', 'Free emergency calls', '2-year parts warranty', 'Air quality testing', 'Duct inspection', 'Energy audit report', 'New filter quarterly', 'Lifetime repair guarantee'], highlight: false },
+            ].map((plan) => (
+              <div key={plan.name} className="card" style={{ textAlign: 'center', position: 'relative', border: plan.highlight ? '2px solid var(--cyan)' : undefined, padding: '2rem', borderRadius: '8px', cursor: 'pointer' }} onClick={() => setSelectedPlan(plan.name.toLowerCase())}>
+                {plan.highlight && <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg, var(--cyan), #00b8d4)', color: '#000', fontFamily: 'var(--font-heading)', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', padding: '4px 16px', borderRadius: '2px' }}>Best Value</div>}
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>{plan.name}</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>{plan.desc}</p>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: 700, color: 'var(--cyan)', marginBottom: '0.25rem', textShadow: '0 0 20px rgba(0,229,255,0.3)' }}>{plan.price}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>or {plan.annual}</div>
+                <div style={{ textAlign: 'left', marginBottom: '2rem' }}>
+                  {plan.features.map((f) => (
+                    <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0', fontSize: '0.82rem', color: 'var(--text-secondary)', borderBottom: '1px solid var(--dark-border)' }}>
+                      <span style={{ color: 'var(--cyan)' }}>✓</span> {f}
                     </div>
-                    <p className="plan-desc">{plan.desc}</p>
-                  </div>
-                  <ul className="plan-features">
-                    {plan.features.map((f, j) => (
-                      <li key={j} className="plan-feature">
-                        <span className="plan-check">&#10003;</span>
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button onClick={() => scrollTo('contact')} className={`plan-btn ${plan.highlight ? 'plan-btn-primary' : 'plan-btn-outline'}`}>
-                    Enroll Now
-                  </button>
+                  ))}
+                </div>
+                <button className={plan.highlight ? 'btn-primary' : 'btn-outline'} style={{ width: '100%' }}>Choose {plan.name}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ====== WHY CHOOSE US ====== */}
+      <section id="why-us" style={{ padding: '80px 24px', background: 'rgba(0,229,255,0.02)', borderTop: '1px solid rgba(0,229,255,0.06)', borderBottom: '1px solid rgba(0,229,255,0.06)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+          <div className="reveal-left">
+            <span className="badge">Why ArcticAir</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px', marginBottom: '16px', lineHeight: 1.05 }}>Comfort You Can Count On</h2>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+              ArcticAir HVAC has been the regions most trusted climate control provider for over two decades. Our NATE-certified technicians undergo continuous training to stay current with the latest HVAC technologies, refrigerant regulations, and energy efficiency standards.
+            </p>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
+              We understand that your HVAC system is one of the largest investments in your home. Thats why we take a consultative approach, performing detailed load calculations, analyzing your existing ductwork, and recommending solutions that optimize comfort, efficiency, and longevity. Every installation comes with our exclusive ArcticAir Assurance including a 10-year parts warranty and lifetime workmanship guarantee.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              {['NATE Certified', 'Licensed & Insured', 'Energy Star Partner', 'BBB A+ Rated', 'Financing Available', 'Same-Day Service', 'All Brands Serviced', '10-Year Warranty'].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                  <span style={{ color: 'var(--cyan)' }}>✓</span> {item}
                 </div>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* === SERVICE AREAS === */}
-        <section className="reveal areas-section" aria-labelledby="areas-heading">
-          <div className="section-container">
-            <div className="section-header">
-              <span className="badge">Coverage</span>
-              <h2 id="areas-heading" className="section-title">Service Areas</h2>
-              <p className="section-subtitle">
-                Proudly serving the Dallas-Fort Worth metroplex with fast, reliable HVAC services across a 30-mile radius from our Dallas headquarters. Our fleet of fully stocked service vehicles ensures we arrive prepared to solve your comfort issues on the first visit.
-              </p>
-            </div>
-            <div className="areas-grid">
-              {serviceAreas.map((area, i) => (
-                <span key={i} className="area-tag">{area}</span>
-              ))}
-            </div>
-            <p className="areas-note">Do not see your city? Call us — we likely serve your area.</p>
+          <div className="reveal-scale" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <img src="https://images.unsplash.com/photo-1631545806609-d2e4c3befed5?w=400&h=300&fit=crop" alt="AC unit" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px' }} />
+            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop" alt="HVAC work" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px' }} />
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop" alt="Thermostat" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px' }} />
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop" alt="Ductwork" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px' }} />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* === TESTIMONIALS === */}
-        <section id="testimonials" className="reveal testimonials-section" aria-labelledby="reviews-heading">
-          <div className="section-container">
-            <div className="section-header">
-              <span className="badge">Customer Love</span>
-              <h2 id="reviews-heading" className="section-title">What Our Customers Say</h2>
-              <p className="section-subtitle">
-                Do not just take our word for it — hear from homeowners across the Dallas-Fort Worth metroplex who trust ArcticAir for their heating and cooling needs. Our 5-star reputation is built on honest service, expert craftsmanship, and genuine care for every customer.
-              </p>
-            </div>
-            <div className="testimonials-grid">
-              {testimonials.map((t, i) => (
-                <div key={i} className="testimonial-card">
-                  <div className="testimonial-stars">
-                    {Array.from({ length: t.rating }).map((_, j) => (
-                      <span key={j} className="star">&#9733;</span>
-                    ))}
-                  </div>
-                  <p className="testimonial-text">&ldquo;{t.text}&rdquo;</p>
-                  <div className="testimonial-author">
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-location">{t.location}</div>
+      {/* ====== REVIEWS ====== */}
+      <section id="reviews" style={{ padding: '80px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span className="badge">Customer Reviews</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px' }}>What Homeowners Say</h2>
+          </div>
+          <div className="stagger-children" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            {[
+              { name: 'Robert K.', text: 'ArcticAir replaced our 20-year-old AC and furnace with a high-efficiency heat pump system. Our energy bills dropped 40% and the house has never been more comfortable. The installers were professional, clean, and finished ahead of schedule.', loc: 'Summit, NJ' },
+              { name: 'Maria S.', text: 'I signed up for the Comfort maintenance plan and it has been worth every penny. They caught a failing capacitor before it left us without AC on the hottest day of the year. Their technicians are knowledgeable, polite, and always on time.', loc: 'Princeton, NJ' },
+              { name: 'Tom D.', text: 'Had an emergency furnace failure on Christmas Eve. ArcticAir had a tech there within an hour who diagnosed and repaired the issue on the spot. They saved our holiday. Cannot recommend them highly enough!', loc: 'Westfield, NJ' },
+            ].map((r) => (
+              <div key={r.name} className="card" style={{ padding: '2rem' }}>
+                <div style={{ color: '#facc15', fontSize: '1.1rem', letterSpacing: '2px', marginBottom: '1rem' }}>★★★★★</div>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.5rem', fontStyle: 'italic' }}>{r.text}</p>
+                <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{r.name}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{r.loc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ====== GALLERY ====== */}
+      <section style={{ padding: '80px 24px', background: 'rgba(0,229,255,0.02)', borderTop: '1px solid rgba(0,229,255,0.06)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span className="badge">Our Work</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px' }}>Recent Installations</h2>
+          </div>
+          <div className="stagger-children" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+            {[
+              { img: 'https://images.unsplash.com/photo-1631545806609-d2e4c3befed5?w=500&h=400&fit=crop', label: 'Central AC Install' },
+              { img: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=400&fit=crop', label: 'Furnace Replacement' },
+              { img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&h=400&fit=crop', label: 'Smart Thermostat' },
+              { img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop', label: 'Ductwork Design' },
+              { img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500&h=400&fit=crop', label: 'Heat Pump System' },
+              { img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=400&fit=crop', label: 'Commercial HVAC' },
+            ].map((item) => (
+              <div key={item.label} style={{ position: 'relative', overflow: 'hidden', borderRadius: '6px', aspectRatio: '4/3', border: '1px solid var(--dark-border)' }}>
+                <img src={item.img} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.85) 100%)', display: 'flex', alignItems: 'flex-end', padding: '1rem' }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.9rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{item.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ====== CONTACT / BOOKING ====== */}
+      <section id="contact" style={{ padding: '80px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
+          <div className="reveal-left">
+            <span className="badge">Contact Us</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: 700, marginTop: '16px', marginBottom: '16px', lineHeight: 1.05 }}>Schedule Your Service</h2>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
+              Ready to upgrade your comfort? Fill out the form and our team will contact you within 2 hours to schedule your service. For emergencies, call (800) 555-3456 for immediate assistance from our 24/7 on-call technicians.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {[
+                { icon: '📞', label: 'Phone', value: '(800) 555-3456' },
+                { icon: '✉️', label: 'Email', value: 'comfort@arcticairhvac.com' },
+                { icon: '🕐', label: 'Hours', value: 'Mon-Fri 7am-7pm, Sat 8am-4pm' },
+                { icon: '🚨', label: 'Emergency', value: '24/7 Available' },
+              ].map((item) => (
+                <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>{item.label}</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 500 }}>{item.value}</div>
                   </div>
                 </div>
               ))}
             </div>
+            <img src="https://images.unsplash.com/photo-1631545806609-d2e4c3befed5?w=600&h=250&fit=crop" alt="ArcticAir service" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px', marginTop: '2rem' }} />
           </div>
-        </section>
-
-        {/* === FREE ESTIMATE FORM === */}
-        <section id="contact" className="reveal contact-section" aria-labelledby="contact-heading">
-          <div className="section-container">
-            <div className="section-header">
-              <span className="badge">Get in Touch</span>
-              <h2 id="contact-heading" className="section-title">Request Your Free Estimate</h2>
-              <p className="section-subtitle">
-                Schedule service or request a free, no-obligation estimate online. We typically respond within 30 minutes during business hours. For 24/7 emergency service, call us directly at (555) 901-2346 — no overtime fees, no voicemail runaround, just a live person ready to help.
-              </p>
-            </div>
-
-            <div className="contact-info-cards">
-              <div className="contact-info-card">
-                <div className="contact-info-icon">&#128222;</div>
-                <div className="contact-info-label">Call Us</div>
-                <a href="tel:(555) 901-2346" className="contact-info-value">(555) 901-2346</a>
-                <div className="contact-info-note">24/7 Emergency Line</div>
-              </div>
-              <div className="contact-info-card">
-                <div className="contact-info-icon">&#128205;</div>
-                <div className="contact-info-label">Visit Us</div>
-                <div className="contact-info-value-sm">4510 Commerce Dr, Suite 200<br />Dallas, TX 75201</div>
-                <div className="contact-info-note">Mon–Sat 7AM–8PM</div>
-              </div>
-              <div className="contact-info-card">
-                <div className="contact-info-icon">&#128176;</div>
-                <div className="contact-info-label">Financing</div>
-                <div className="contact-info-value-sm">0% APR for up to 60 months<br />on new system installs</div>
-                <div className="contact-info-note">OAC — Ask for details</div>
-              </div>
-            </div>
-
-            <div className="form-container">
-              {submitted ? (
-                <div className="form-success">
-                  <div className="form-success-icon">&#9989;</div>
-                  <h3 className="form-success-title">Thank You!</h3>
-                  <p className="form-success-text">Your request has been submitted. We will contact you within 30 minutes during business hours.</p>
-                  <button onClick={() => setSubmitted(false)} className="btn-primary">Submit Another Request</button>
+          <div className="reveal-scale">
+            <div className="card" style={{ padding: '2rem', borderRadius: '8px' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '1.5rem' }}>Request Service</h3>
+              {formSubmitted ? (
+                <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Thank You!</h4>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Our team will contact you within 2 hours to confirm your appointment.</p>
                 </div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="estimate-form">
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label">Full Name *</label>
-                      <input type="text" required placeholder="John Smith" className="form-input" />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">Phone Number *</label>
-                      <input type="tel" required placeholder="(555) 123-4567" className="form-input" />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Email Address *</label>
-                    <input type="email" required placeholder="john@example.com" className="form-input" />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Service Needed *</label>
-                    <select required className="form-input">
-                      <option value="">Select a service...</option>
-                      <option>AC Installation</option>
-                      <option>AC Repair</option>
-                      <option>Furnace Installation</option>
-                      <option>Furnace Repair</option>
-                      <option>Heat Pump Service</option>
-                      <option>Duct Cleaning</option>
-                      <option>Indoor Air Quality</option>
-                      <option>Maintenance Plan</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Preferred Date</label>
-                    <input type="date" className="form-input" />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Tell Us More</label>
-                    <textarea rows={4} placeholder="Describe your HVAC issue or service request..." className="form-input form-textarea" />
-                  </div>
-                  <button type="submit" className="btn-primary form-submit">
-                    Submit Request — It is Free
-                  </button>
-                  <p className="form-disclaimer">
-                    By submitting, you agree to be contacted about your service request. We never share your information with third parties.
-                  </p>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <input type="text" placeholder="Full Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required style={{ background: 'var(--dark)', border: '1px solid var(--dark-border)', borderRadius: '4px', padding: '0.75rem 1rem', color: 'var(--text-primary)', fontSize: '0.9rem' }} />
+                  <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required style={{ background: 'var(--dark)', border: '1px solid var(--dark-border)', borderRadius: '4px', padding: '0.75rem 1rem', color: 'var(--text-primary)', fontSize: '0.9rem' }} />
+                  <input type="email" placeholder="Email Address" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={{ background: 'var(--dark)', border: '1px solid var(--dark-border)', borderRadius: '4px', padding: '0.75rem 1rem', color: 'var(--text-primary)', fontSize: '0.9rem' }} />
+                  <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} style={{ background: 'var(--dark)', border: '1px solid var(--dark-border)', borderRadius: '4px', padding: '0.75rem 1rem', color: 'var(--text-primary)', fontSize: '0.9rem' }}>
+                    <option value="">Select Service</option>
+                    <option>AC Repair</option>
+                    <option>AC Installation</option>
+                    <option>Heating Repair</option>
+                    <option>Heating Installation</option>
+                    <option>Maintenance Plan</option>
+                    <option>Indoor Air Quality</option>
+                    <option>Emergency Service</option>
+                    <option>Other</option>
+                  </select>
+                  <textarea placeholder="Describe your needs..." rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ background: 'var(--dark)', border: '1px solid var(--dark-border)', borderRadius: '4px', padding: '0.75rem 1rem', color: 'var(--text-primary)', fontSize: '0.9rem', resize: 'vertical' }} />
+                  <button type="submit" className="btn-primary" style={{ width: '100%' }}>Submit Request</button>
                 </form>
               )}
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      {/* === FOOTER === */}
-      <footer className="site-footer">
-        <div className="footer-inner">
-          <div className="footer-grid">
-            <div className="footer-col">
-              <h3 className="footer-brand">ARCTICAIR</h3>
-              <p className="footer-about">
-                Expert heating, cooling, and indoor air quality services for the Dallas-Fort Worth metroplex since 2001. Licensed, bonded, insured, and committed to your comfort.
-              </p>
+      {/* ====== FOOTER ====== */}
+      <footer style={{ background: 'var(--dark-surface)', borderTop: '1px solid var(--dark-border)', padding: '4rem 24px 2rem' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--cyan)', letterSpacing: '0.15em', marginBottom: '1rem' }}>ARCTICAIR HVAC</div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>Professional heating, cooling, and indoor air quality services. NATE-certified technicians delivering comfort solutions since 2002.</p>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>License #HVAC-3847291</p>
             </div>
-            <div className="footer-col">
-              <h4 className="footer-heading">Services</h4>
-              <ul className="footer-list">
-                <li>AC Installation &amp; Repair</li>
-                <li>Furnace Installation &amp; Repair</li>
-                <li>Heat Pump Systems</li>
-                <li>Duct Cleaning</li>
-                <li>Indoor Air Quality</li>
-              </ul>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--cyan)' }}>Services</h4>
+              {['AC Installation', 'Heating Systems', 'Heat Pumps', 'Air Quality', 'Ductwork', 'Smart Controls'].map((s) => (
+                <div key={s} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', cursor: 'pointer' }}>{s}</div>
+              ))}
             </div>
-            <div className="footer-col">
-              <h4 className="footer-heading">Company</h4>
-              <ul className="footer-list">
-                <li>About ArcticAir</li>
-                <li>Maintenance Plans</li>
-                <li>Financing Options</li>
-                <li>Service Areas</li>
-                <li>Careers</li>
-              </ul>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--cyan)' }}>Company</h4>
+              {['About Us', 'Careers', 'Blog', 'Financing', 'Maintenance Plans', 'Contact'].map((s) => (
+                <div key={s} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', cursor: 'pointer' }}>{s}</div>
+              ))}
             </div>
-            <div className="footer-col">
-              <h4 className="footer-heading">Contact</h4>
-              <ul className="footer-list">
-                <li><a href="tel:(555) 901-2346" className="footer-link">(555) 901-2346</a></li>
-                <li>info@arcticairhvac.com</li>
-                <li>4510 Commerce Dr, Suite 200</li>
-                <li>Dallas, TX 75201</li>
-                <li>TACLA License #48291</li>
-              </ul>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--cyan)' }}>Contact</h4>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 2 }}>
+                <div>(800) 555-3456</div>
+                <div>comfort@arcticairhvac.com</div>
+                <div>789 Climate Ave<br />Summit, NJ 07901</div>
+              </div>
             </div>
           </div>
-          <div className="footer-bottom">
-            &copy; {new Date().getFullYear()} ArcticAir HVAC. All rights reserved. Dallas, TX. Licensed, Bonded &amp; Insured.
+          <div style={{ borderTop: '1px solid var(--dark-border)', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            © 2026 ArcticAir HVAC. All rights reserved. | Privacy Policy | Terms of Service
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
