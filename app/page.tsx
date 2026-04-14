@@ -87,8 +87,8 @@ export default function HVACPage() {
                 { val: '4.9★', label: 'Google Rating' },
               ].map((s) => (
                 <div key={s.label} style={{ background: 'var(--dark-card)', border: '1px solid var(--dark-border)', borderRadius: '6px', padding: '24px 16px', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--cyan)', lineHeight: 1 }}>{s.val}</div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '6px' }}>{s.label}</div>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--cyan)', lineHeight: 1, whiteSpace: 'nowrap' }}>{s.val}</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '6px', whiteSpace: 'nowrap' }}>{s.label}</div>
                 </div>
               ))}
             </div>
