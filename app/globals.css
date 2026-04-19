@@ -12,7 +12,7 @@
   --color-dark-card: #141414;
   --color-dark-border: #1e1e1e;
   --color-white-soft: #e0e0e0;
-  --color-slate-text: #b0b0b0;
+  --color-slate-text: #c0c0c0;
   --color-amber: #facc15;
 }
 
@@ -28,8 +28,8 @@
   --dark-border: #1e1e1e;
   --dark-border-light: #2a2a2a;
   --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-muted: #777777;
+  --text-secondary: #c0c0c0;
+  --text-muted: #999999;
   --font-heading: 'Saira Condensed', sans-serif;
   --font-body: 'Inter', sans-serif;
   --glow-sm: 0 0 10px rgba(0, 229, 255, 0.25);
@@ -1347,4 +1347,29 @@ img {
 /* Responsive */
 @media (max-width: 768px) {
   section { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  button, a, [role="button"] {
+    min-height: 44px;
+  }
+  
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Improve mobile readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Ensure text doesn't overflow on mobile */
+  p, h1, h2, h3, h4, h5, h6, span, li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
 }

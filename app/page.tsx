@@ -74,13 +74,13 @@ export default function Home() {
  24/7 Emergency Service &mdash; Call Now:{' '}
  <a href="tel:+15557892665" className="emergency-phone">(555) 789-COOL</a>
  </span>
- <button
- className="emergency-close"
- onClick={() => setBannerVisible(false)}
- aria-label="Close emergency banner"
- >
- ✕
- </button>
+        <button
+          className="emergency-close min-h-[44px] min-w-[44px] flex items-center justify-center"
+          onClick={() => setBannerVisible(false)}
+          aria-label="Close emergency banner"
+        >
+          ✕
+        </button>
  </div>
  </div>
  )}
@@ -116,14 +116,14 @@ export default function Home() {
 
  <div className="hidden md:flex items-center gap-8">
  {['Services', 'Plans', 'About', 'Reviews', 'Contact'].map(item => (
- <button
- key={item}
- onClick={() => scrollToSection(item.toLowerCase())}
- aria-label={`Navigate to ${item} section`}
- className="text-sm text-slate-text hover:text-neon transition-colors focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 rounded"
- >
- {item}
- </button>
+        <button
+          key={item}
+          onClick={() => scrollToSection(item.toLowerCase())}
+          aria-label={`Navigate to ${item} section`}
+          className="text-sm text-white-soft hover:text-neon transition-colors focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 rounded px-3 py-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+        >
+          {item}
+        </button>
  ))}
  <a
  href="tel:+15557892665"
@@ -133,39 +133,39 @@ export default function Home() {
  </a>
  </div>
 
- <button
- aria-label={menuOpen ? 'Close menu' : 'Open menu'}
- aria-expanded={menuOpen}
- className="md:hidden text-neon focus-visible:outline-2 focus-visible:outline-neon rounded"
- onClick={() => setMenuOpen(!menuOpen)}
- >
- <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
- {menuOpen ? (
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
- ) : (
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
- )}
- </svg>
- </button>
+        <button
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          className="md:hidden text-neon focus-visible:outline-2 focus-visible:outline-neon rounded min-h-[48px] min-w-[48px] flex items-center justify-center"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
  </div>
 
  {menuOpen && (
  <div className="md:hidden glass border-t border-dark-border px-6 py-4 space-y-4">
  {['Services', 'Plans', 'About', 'Reviews', 'Contact'].map(item => (
- <button
- key={item}
- onClick={() => scrollToSection(item.toLowerCase())}
- className="block w-full text-left text-slate-text hover:text-neon py-2"
- >
- {item}
- </button>
+          <button
+            key={item}
+            onClick={() => scrollToSection(item.toLowerCase())}
+            className="block w-full text-left text-white-soft hover:text-neon py-3 min-h-[44px]"
+          >
+            {item}
+          </button>
  ))}
- <a
- href="tel:+15557892665"
- className="block w-full text-center bg-neon text-dark px-6 py-3 rounded-full font-bold"
- >
- Free Estimate
- </a>
+          <a
+            href="tel:+15557892665"
+            className="block w-full text-center bg-neon text-dark px-6 py-4 rounded-full font-bold min-h-[48px] flex items-center justify-center"
+          >
+            Free Estimate
+          </a>
  </div>
  )}
  </nav>
@@ -194,31 +194,31 @@ export default function Home() {
  Expert HVAC installation, repair, and maintenance. Energy-efficient systems that keep you comfortable while saving money.
  </p>
  <div className="flex flex-wrap gap-4 mb-10 animate-fade-in-up stagger-3">
- <a
- href="#contact"
- className="bg-neon text-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-neon-dim transition-all hover:scale-105 neon-glow focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2"
- >
- Free Estimate
- </a>
- <a
- href="tel:+15557892665"
- className="border-2 border-neon/50 text-neon px-8 py-4 rounded-full text-lg font-bold hover:bg-neon/10 transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2"
- >
- Emergency: 24/7
- </a>
+          <a
+            href="#contact"
+            className="bg-neon text-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-neon-dim transition-all hover:scale-105 neon-glow focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 min-h-[48px] inline-flex items-center"
+          >
+            Free Estimate
+          </a>
+          <a
+            href="tel:+15557892665"
+            className="border-2 border-neon/50 text-neon px-8 py-4 rounded-full text-lg font-bold hover:bg-neon/10 transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 min-h-[48px] inline-flex items-center"
+          >
+            Emergency: 24/7
+          </a>
  </div>
- <div className="flex items-center gap-8">
- {[
- { num: '15K+', label: 'Systems Installed' },
- { num: '40%', label: 'Energy Savings' },
- { num: '24/7', label: 'Emergency' },
- ].map((s, i) => (
- <div key={i}>
- <div className="text-2xl font-bold text-neon">{s.num}</div>
- <div className="text-sm text-slate-text">{s.label}</div>
- </div>
- ))}
- </div>
+          <div className="flex items-center gap-6 md:gap-8">
+            {[
+              { num: '15K+', label: 'Systems Installed' },
+              { num: '40%', label: 'Energy Savings' },
+              { num: '24/7', label: 'Emergency' },
+            ].map((s, i) => (
+              <div key={i} className="text-center md:text-left">
+                <div className="text-xl md:text-2xl font-bold text-neon">{s.num}</div>
+                <div className="text-xs md:text-sm text-slate-text">{s.label}</div>
+              </div>
+            ))}
+          </div>
  </div>
  <div className="relative">
  <div className="glass rounded-3xl p-8 neon-glow">
@@ -246,17 +246,20 @@ export default function Home() {
  </div>
  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
  {services.map((s, i) => (
- <article
- key={i}
- className="glass rounded-2xl p-6 hover:border-neon/30 transition-all hover:scale-105 group"
- >
- <div className="text-4xl mb-4" aria-hidden="true">{s.icon}</div>
- <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon transition-colors">
- {s.title}
- </h3>
- <p className="text-slate-text text-sm mb-3">{s.desc}</p>
- <div className="text-neon font-bold text-sm">{s.price}</div>
- </article>
+          <article
+            key={i}
+            className="glass rounded-2xl p-6 hover:border-neon/30 transition-all hover:scale-105 group cursor-pointer"
+            role="button"
+            tabIndex={0}
+            aria-label={`${s.title} - ${s.price}`}
+          >
+            <div className="text-3xl md:text-4xl mb-4" aria-hidden="true">{s.icon}</div>
+            <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-neon transition-colors">
+              {s.title}
+            </h3>
+            <p className="text-white-soft text-sm mb-3 leading-relaxed">{s.desc}</p>
+            <div className="text-neon font-bold text-sm">{s.price}</div>
+          </article>
  ))}
  </div>
  </div>
@@ -292,10 +295,10 @@ export default function Home() {
  </li>
  ))}
  </ul>
- <a
- href="#contact"
- className={`plan-btn ${plan.highlighted ? 'plan-btn-primary' : 'plan-btn-outline'}`}
- >
+          <a
+            href="#contact"
+            className={`plan-btn ${plan.highlighted ? 'plan-btn-primary' : 'plan-btn-outline'} min-h-[48px] flex items-center justify-center`}
+          >
  Get Started
  </a>
  </div>
@@ -396,7 +399,7 @@ export default function Home() {
  <span key={j} className="text-amber" aria-hidden="true">★</span>
  ))}
  </div>
- <p className="text-white-soft mb-6 italic">&ldquo;{t.text}&rdquo;</p>
+          <p className="text-white-soft mb-6 italic leading-relaxed">&ldquo;{t.text}&rdquo;</p>
  <div>
  <p className="font-bold text-white">{t.name}</p>
  <p className="text-sm text-slate-text">{t.role}</p>
@@ -425,13 +428,13 @@ export default function Home() {
  <div className="contact-info-card">
  <div className="contact-info-icon">📞</div>
  <p className="contact-info-label">24/7 Service Line</p>
- <a href="tel:+15557892665" className="contact-info-value">(555) 789-COOL</a>
+              <a href="tel:+15557892665" className="contact-info-value min-h-[44px] inline-flex items-center">(555) 789-COOL</a>
  <p className="contact-info-note">Emergency calls answered anytime</p>
  </div>
  <div className="contact-info-card">
  <div className="contact-info-icon">📧</div>
  <p className="contact-info-label">Email Us</p>
- <a href="mailto:info@arcticairhvac.com" className="contact-info-value contact-info-value-sm">
+              <a href="mailto:info@arcticairhvac.com" className="contact-info-value contact-info-value-sm min-h-[44px] inline-flex items-center">
  info@arcticairhvac.com
  </a>
  <p className="contact-info-note">Response within 2 hours</p>
@@ -479,44 +482,50 @@ export default function Home() {
  <div className="form-row">
  <div className="form-group">
  <label htmlFor="name" className="form-label">Your Name</label>
- <input
- id="name"
- name="name"
- type="text"
- required
- placeholder="John Smith"
- className="form-input"
- />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="John Smith"
+                autoComplete="name"
+                aria-required="true"
+                className="form-input"
+              />
  </div>
  <div className="form-group">
  <label htmlFor="email" className="form-label">Email</label>
- <input
- id="email"
- name="email"
- type="email"
- required
- placeholder="john@example.com"
- className="form-input"
- />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="john@example.com"
+                autoComplete="email"
+                aria-required="true"
+                className="form-input"
+              />
  </div>
  </div>
 
  <div className="form-row">
  <div className="form-group">
  <label htmlFor="phone" className="form-label">Phone</label>
- <input
- id="phone"
- name="phone"
- type="tel"
- required
- placeholder="(555) 000-0000"
- className="form-input"
- />
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                placeholder="(555) 000-0000"
+                autoComplete="tel"
+                aria-required="true"
+                className="form-input"
+              />
  </div>
  <div className="form-group">
  <label htmlFor="service-type" className="form-label">Service Needed</label>
- <select id="service-type" name="service" className="form-input">
- <option value="">Select service</option>
+              <select id="service-type" name="service" className="form-input" aria-label="Service type">
+                <option value="">Select service</option>
  <option value="ac-install">AC Installation</option>
  <option value="heating">Heating System</option>
  <option value="repair">Repair Service</option>
@@ -529,16 +538,17 @@ export default function Home() {
 
  <div className="form-group">
  <label htmlFor="details" className="form-label">Describe Your Needs</label>
- <textarea
- id="details"
- name="message"
- rows={4}
- placeholder="Tell us about your HVAC needs, property type, and any current issues..."
- className="form-input form-textarea"
- />
+              <textarea
+                id="details"
+                name="message"
+                rows={4}
+                placeholder="Tell us about your HVAC needs, property type, and any current issues..."
+                aria-label="Describe your HVAC needs"
+                className="form-input form-textarea"
+              />
  </div>
 
- <button type="submit" className="btn-primary form-submit">
+          <button type="submit" className="btn-primary form-submit min-h-[48px]">
  Get Free Estimate
  </button>
  <p className="form-disclaimer">
@@ -572,7 +582,7 @@ export default function Home() {
  target="_blank"
  rel="noopener noreferrer"
  aria-label="Chat with us on WhatsApp"
- className="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all hover:scale-110"
  >
  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -610,11 +620,11 @@ export default function Home() {
  <div>
  <h3 className="footer-heading">Services</h3>
  <ul className="footer-list">
- <li><button onClick={() => scrollToSection('services')} className="footer-link">AC Installation</button></li>
- <li><button onClick={() => scrollToSection('services')} className="footer-link">Heating Systems</button></li>
- <li><button onClick={() => scrollToSection('services')} className="footer-link">Repair & Service</button></li>
- <li><button onClick={() => scrollToSection('services')} className="footer-link">Duct Cleaning</button></li>
- <li><button onClick={() => scrollToSection('services')} className="footer-link">Air Quality</button></li>
+            <li><button onClick={() => scrollToSection('services')} className="footer-link py-1 min-h-[44px] flex items-center">AC Installation</button></li>
+            <li><button onClick={() => scrollToSection('services')} className="footer-link py-1 min-h-[44px] flex items-center">Heating Systems</button></li>
+            <li><button onClick={() => scrollToSection('services')} className="footer-link py-1 min-h-[44px] flex items-center">Repair & Service</button></li>
+            <li><button onClick={() => scrollToSection('services')} className="footer-link py-1 min-h-[44px] flex items-center">Duct Cleaning</button></li>
+            <li><button onClick={() => scrollToSection('services')} className="footer-link py-1 min-h-[44px] flex items-center">Air Quality</button></li>
  </ul>
  </div>
 
@@ -622,11 +632,11 @@ export default function Home() {
  <div>
  <h3 className="footer-heading">Company</h3>
  <ul className="footer-list">
- <li><button onClick={() => scrollToSection('about')} className="footer-link">About Us</button></li>
- <li><button onClick={() => scrollToSection('plans')} className="footer-link">Maintenance Plans</button></li>
- <li><button onClick={() => scrollToSection('reviews')} className="footer-link">Reviews</button></li>
- <li><button onClick={() => scrollToSection('contact')} className="footer-link">Contact</button></li>
- <li><a href="tel:+15557892665" className="footer-link">Emergency Service</a></li>
+            <li><button onClick={() => scrollToSection('about')} className="footer-link py-1 min-h-[44px] flex items-center">About Us</button></li>
+            <li><button onClick={() => scrollToSection('plans')} className="footer-link py-1 min-h-[44px] flex items-center">Maintenance Plans</button></li>
+            <li><button onClick={() => scrollToSection('reviews')} className="footer-link py-1 min-h-[44px] flex items-center">Reviews</button></li>
+            <li><button onClick={() => scrollToSection('contact')} className="footer-link py-1 min-h-[44px] flex items-center">Contact</button></li>
+            <li><a href="tel:+15557892665" className="footer-link py-1 min-h-[44px] flex items-center">Emergency Service</a></li>
  </ul>
  </div>
 
@@ -635,12 +645,12 @@ export default function Home() {
  <h3 className="footer-heading">Contact</h3>
  <ul className="footer-list">
  <li>
- <a href="tel:+15557892665" className="footer-link">
- 📞 (555) 789-COOL
- </a>
+              <a href="tel:+15557892665" className="footer-link min-h-[44px] inline-flex items-center">
+                📞 (555) 789-COOL
+              </a>
  </li>
  <li>
- <a href="mailto:info@arcticairhvac.com" className="footer-link">
+              <a href="mailto:info@arcticairhvac.com" className="footer-link min-h-[44px] inline-flex items-center">
  📧 info@arcticairhvac.com
  </a>
  </li>
@@ -653,16 +663,22 @@ export default function Home() {
  <li className="text-slate-text">
  🕐 Sat: 8AM - 5PM | Sun: 9AM - 3PM
  </li>
- <li className="text-neon font-bold">
- 🚨 24/7 Emergency Service
- </li>
+        <li className="text-neon font-bold">
+          🚨 24/7 Emergency Service
+        </li>
+        <li>
+          <a href="/privacy-policy" className="footer-link py-1 min-h-[44px] flex items-center">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="/terms-of-service" className="footer-link py-1 min-h-[44px] flex items-center">Terms of Service</a>
+        </li>
  </ul>
  </div>
  </div>
 
  <div className="footer-bottom">
- <p>NATE Certified | Energy Star Partner | ACCA Member</p>
- <p className="mt-2">© 2024 ArcticAir HVAC. All rights reserved. License #HV-2004-7789</p>
+          <p>NATE Certified | Energy Star Partner | ACCA Member</p>
+          <p className="mt-2">© {new Date().getFullYear()} ArcticAir HVAC. All rights reserved. License #HV-2004-7789</p>
  </div>
  </div>
  </footer>
