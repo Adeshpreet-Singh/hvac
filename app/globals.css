@@ -4,6 +4,18 @@
 
 @import "tailwindcss";
 
+@theme inline {
+  --color-neon: #00e5ff;
+  --color-neon-dim: #00b8d4;
+  --color-dark: #0a0a0a;
+  --color-dark-surface: #111111;
+  --color-dark-card: #141414;
+  --color-dark-border: #1e1e1e;
+  --color-white-soft: #e0e0e0;
+  --color-slate-text: #b0b0b0;
+  --color-amber: #facc15;
+}
+
 /* ========================= */
 /* CSS CUSTOM PROPERTIES     */
 /* ========================= */
@@ -62,6 +74,71 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-cyan {
   color: var(--cyan);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neon utility classes */
+.text-neon {
+  color: var(--cyan);
+}
+
+.text-dark {
+  color: #000000;
+}
+
+.bg-neon {
+  background-color: var(--cyan);
+}
+
+.bg-neon-dim {
+  background-color: #00b8d4;
+}
+
+.neon-glow {
+  box-shadow: var(--glow-md);
+}
+
+.neon-text {
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 229, 255, 0.25);
+}
+
+.text-white-soft {
+  color: var(--text-secondary);
+}
+
+.text-slate-text {
+  color: var(--text-secondary);
+}
+
+.border-neon\/20 {
+  border-color: rgba(0, 229, 255, 0.2);
+}
+
+.border-neon\/30 {
+  border-color: rgba(0, 229, 255, 0.3);
+}
+
+.border-neon\/50 {
+  border-color: rgba(0, 229, 255, 0.5);
+}
+
+/* Focus outline for neon theme */
+.focus-visible\:outline-neon:focus-visible {
+  outline-color: var(--cyan);
 }
 
 /* ========================= */
@@ -1191,98 +1268,39 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/* ===== FINAL 10/10 POLISH ===== */
+/* ===== FINAL POLISH ===== */
 
-/* CONTRAST FIX - ensure ALL body text meets WCAG AAA (7:1 ratio) */
+/* Font smoothing */
 body { -webkit-font-smoothing: antialiased; }
-p, li, span:not(.badge):not(.btn):not(.btn-primary):not(.btn-outline), td, label, dd, a {
-  color: inherit;
+
+/* Inherit color for semantic elements */
+p, li, td, label, dd, a {
   line-height: 1.75;
 }
 
-/* FORCE readable text on ALL backgrounds */
-section p, section li, section span {
-  opacity: 1 !important;
-}
-
-/* NAV - always readable, never too small */
-nav button, nav a, nav li {
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  opacity: 1 !important;
-}
-
-/* CARDS - consistent, polished */
-.card, [class*="-card"] {
-  backdrop-filter: blur(12px);
+/* Cards - smooth hover transitions */
+[class*="-card"] {
   transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.card:hover, [class*="-card"]:hover {
-  transform: translateY(-6px);
-}
 
-/* FORMS - always visible inputs */
-input, textarea, select {
-  font-size: 16px !important;
-  padding: 14px 18px !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  border-radius: 10px !important;
-}
-
-/* BUTTONS - polished */
-button, .btn, [class*="btn-"] {
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-button:hover, .btn:hover, [class*="btn-"]:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-/* IMAGES - proper sizing */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* SECTIONS - proper overflow */
-section {
-  overflow: hidden;
-  position: relative;
-}
-
-/* SCROLL REVEAL */
+/* Scroll reveal */
 .reveal, [class*="reveal"] {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* MINIMUM FONT SIZE - nothing below 14px */
-* { font-size: max(14px, inherit); }
-h1 { font-size: max(2.5rem, inherit); }
-h2 { font-size: max(2rem, inherit); }
-h3 { font-size: max(1.25rem, inherit); }
-
-/* FOCUS STATES */
+/* Focus states */
 *:focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--cyan);
   outline-offset: 3px;
 }
 
-/* REDUCED MOTION */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1 !important; transform: none !important; }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  section { padding-left: 1rem !important; padding-right: 1rem !important; }
-  nav button, nav a { font-size: 14px !important; }
 }
 
 /* Hover effects */
@@ -1292,7 +1310,7 @@ h3 { font-size: max(1.25rem, inherit); }
 
 .hover-lift:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--glow-md);
 }
 
 .hover-zoom {
@@ -1312,5 +1330,21 @@ h3 { font-size: max(1.25rem, inherit); }
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  box-shadow: var(--glow-md);
+}
+
+/* Typography hierarchy - use clamp for responsive sizing */
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.75rem); font-weight: 600; }
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section { padding-left: 1rem; padding-right: 1rem; }
 }
