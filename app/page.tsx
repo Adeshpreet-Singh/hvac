@@ -233,7 +233,7 @@ export default function Home() {
  </section>
 
  {/* Services Section */}
- <section id="services" aria-labelledby="services-heading" className="py-24 relative">
+ <section id="services" aria-labelledby="services-heading" className="py-16 md:py-20 relative">
  <div className="max-w-7xl mx-auto px-6">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">WHAT WE DO</p>
@@ -308,7 +308,7 @@ export default function Home() {
  </section>
 
  {/* About Section */}
- <section id="about" aria-labelledby="about-heading" className="py-24 relative">
+ <section id="about" aria-labelledby="about-heading" className="py-16 md:py-20 relative">
  <div className="absolute inset-0" aria-hidden="true">
  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon/5 rounded-full blur-[150px]" />
  </div>
@@ -383,7 +383,7 @@ export default function Home() {
  </section>
 
  {/* Reviews Section */}
- <section id="reviews" aria-labelledby="reviews-heading" className="py-24 relative">
+ <section id="reviews" aria-labelledby="reviews-heading" className="py-16 md:py-20 relative">
  <div className="max-w-7xl mx-auto px-6">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">TESTIMONIALS</p>
@@ -411,7 +411,7 @@ export default function Home() {
  </section>
 
  {/* Contact Section */}
- <section id="contact" aria-labelledby="contact-heading" className="py-24 relative">
+ <section id="contact" aria-labelledby="contact-heading" className="py-16 md:py-20 relative">
  <div className="max-w-7xl mx-auto px-6">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">GET COMFORTABLE</p>
