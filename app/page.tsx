@@ -101,7 +101,7 @@ export default function Home() {
  className={`fixed left-0 right-0 z-50 glass ${bannerVisible ? 'top-[42px]' : 'top-0'}`}
 
  >
- <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+ <div className=" section-container">
  <div className="flex items-center gap-3">
  <div className="w-10 h-10 bg-neon/20 rounded-xl flex items-center justify-center text-neon text-xl neon-glow" aria-hidden="true">
  ❄️
@@ -178,7 +178,7 @@ export default function Home() {
  <div className="absolute top-20 right-20 w-96 h-96 bg-neon/10 rounded-full blur-[120px]" />
  <div className="absolute bottom-20 left-20 w-64 h-64 bg-neon/5 rounded-full blur-[100px]" />
  </div>
- <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+ <div className="relative section-container">
  <div>
  <p className="text-neon text-sm font-bold tracking-widest mb-4 animate-fade-in-up">
  COMFORT SPECIALISTS SINCE 2004
@@ -234,7 +234,7 @@ export default function Home() {
 
  {/* Services Section */}
  <section id="services" aria-labelledby="services-heading" className="py-16 md:py-20 relative">
- <div className="max-w-7xl mx-auto px-6">
+ <div className=" section-container">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">WHAT WE DO</p>
  <h2 id="services-heading" className="text-4xl font-bold text-white mb-4">
@@ -312,7 +312,7 @@ export default function Home() {
  <div className="absolute inset-0" aria-hidden="true">
  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon/5 rounded-full blur-[150px]" />
  </div>
- <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+ <div className="relative section-container">
  <div className="glass rounded-3xl p-8">
  <img
  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80"
@@ -384,7 +384,7 @@ export default function Home() {
 
  {/* Reviews Section */}
  <section id="reviews" aria-labelledby="reviews-heading" className="py-16 md:py-20 relative">
- <div className="max-w-7xl mx-auto px-6">
+ <div className=" section-container">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">TESTIMONIALS</p>
  <h2 id="reviews-heading" className="text-4xl font-bold text-white mb-4">
@@ -412,7 +412,7 @@ export default function Home() {
 
  {/* Contact Section */}
  <section id="contact" aria-labelledby="contact-heading" className="py-16 md:py-20 relative">
- <div className="max-w-7xl mx-auto px-6">
+ <div className=" section-container">
  <div className="text-center mb-16">
  <p className="text-neon text-sm font-bold tracking-widest mb-4">GET COMFORTABLE</p>
  <h2 id="contact-heading" className="text-4xl font-bold text-white mb-4">
