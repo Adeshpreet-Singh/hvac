@@ -244,7 +244,7 @@ export default function Home() {
  Complete heating, cooling, and air quality solutions for residential and commercial properties.
  </p>
  </div>
- <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div className="grid md:grid-cols-2 gap-6 lg:grid-cols-3 gap-6">
  {services.map((s, i) => (
           <article
             key={i}
