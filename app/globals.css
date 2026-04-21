@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .emergency-banner-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 10px 24px;
   display: flex;
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-inner {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -409,7 +409,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-inner {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
@@ -550,7 +550,7 @@ h1, h2, h3, h4, h5, h6 {
 /* SECTIONS COMMON           */
 /* ========================= */
 .section-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -1146,7 +1146,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }
