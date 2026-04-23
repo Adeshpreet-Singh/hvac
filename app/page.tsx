@@ -72,7 +72,7 @@ export default function Home() {
  <div className="emergency-pulse-dot" aria-hidden="true" />
  <span className="emergency-text">
  24/7 Emergency Service &mdash; Call Now:{' '}
- <a href="tel:[PHONE]" className="emergency-phone">[PHONE]</a>
+ <a href="tel:+91 98765 43210" className="emergency-phone">+91 98765 43210</a>
  </span>
  <button
  className="emergency-close min-h-[44px] min-w-[44px] flex items-center justify-center"
@@ -126,7 +126,7 @@ export default function Home() {
  </button>
  ))}
  <a
- href="tel:[PHONE]"
+ href="tel:+91 98765 43210"
  className="bg-neon text-dark px-6 py-2.5 rounded-full text-sm font-bold hover:bg-neon-dim transition-colors focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2"
  >
  Free Estimate
@@ -161,7 +161,7 @@ export default function Home() {
  </button>
  ))}
  <a
- href="tel:[PHONE]"
+ href="tel:+91 98765 43210"
  className="block w-full text-center bg-neon text-dark px-6 py-4 rounded-full font-bold min-h-[48px] flex items-center justify-center"
  >
  Free Estimate
@@ -201,7 +201,7 @@ export default function Home() {
  Free Estimate
  </a>
  <a
- href="tel:[PHONE]"
+ href="tel:+91 98765 43210"
  className="border-2 border-neon/50 text-neon px-8 py-4 rounded-full text-lg font-bold hover:bg-neon/10 transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 min-h-[48px] inline-flex items-center"
  >
  Emergency: 24/7
@@ -377,7 +377,7 @@ export default function Home() {
  ))}
  </div>
  <p className="areas-note">
- Don&apos;t see your area? <a href="tel:[PHONE]" className="text-neon hover:underline">Call us</a> — we likely serve your neighborhood too.
+ Don&apos;t see your area? <a href="tel:+91 98765 43210" className="text-neon hover:underline">Call us</a> — we likely serve your neighborhood too.
  </p>
  </div>
  </section>
@@ -428,7 +428,7 @@ export default function Home() {
  <div className="contact-info-card">
  <div className="contact-info-icon"></div>
  <p className="contact-info-label">24/7 Service Line</p>
- <a href="tel:[PHONE]" className="contact-info-value min-h-[44px] inline-flex items-center">[PHONE]</a>
+ <a href="tel:+91 98765 43210" className="contact-info-value min-h-[44px] inline-flex items-center">+91 98765 43210</a>
  <p className="contact-info-note">Emergency calls answered anytime</p>
  </div>
  <div className="contact-info-card">
@@ -516,7 +516,7 @@ export default function Home() {
  name="phone"
  type="tel"
  required
- placeholder="[PHONE]"
+ placeholder="+91 98765 43210"
  autoComplete="tel"
  aria-required="true"
  className="form-input"
@@ -578,7 +578,7 @@ export default function Home() {
 
  {/* WhatsApp Floating Button */}
  <a
- href="https://wa.me/[PHONE]?text=Hi%20ArcticAir%2C%20I%27d%20like%20to%20request%20an%20HVAC%20estimate."
+ href="https://wa.me/+91 98765 43210?text=Hi%20ArcticAir%2C%20I%27d%20like%20to%20request%20an%20HVAC%20estimate."
  target="_blank"
  rel="noopener noreferrer"
  aria-label="Chat with us on WhatsApp"
@@ -636,7 +636,7 @@ export default function Home() {
  <li><button onClick={() => scrollToSection('plans')} className="footer-link py-1 min-h-[44px] flex items-center">Maintenance Plans</button></li>
  <li><button onClick={() => scrollToSection('reviews')} className="footer-link py-1 min-h-[44px] flex items-center">Reviews</button></li>
  <li><button onClick={() => scrollToSection('contact')} className="footer-link py-1 min-h-[44px] flex items-center">Contact</button></li>
- <li><a href="tel:[PHONE]" className="footer-link py-1 min-h-[44px] flex items-center">Emergency Service</a></li>
+ <li><a href="tel:+91 98765 43210" className="footer-link py-1 min-h-[44px] flex items-center">Emergency Service</a></li>
  </ul>
  </div>
 
@@ -645,8 +645,8 @@ export default function Home() {
  <h3 className="footer-heading">Contact</h3>
  <ul className="footer-list">
  <li>
- <a href="tel:[PHONE]" className="footer-link min-h-[44px] inline-flex items-center">
- [PHONE]
+ <a href="tel:+91 98765 43210" className="footer-link min-h-[44px] inline-flex items-center">
+ +91 98765 43210
  </a>
  </li>
  <li>
