@@ -560,16 +560,7 @@ export default function Home() {
 
  {/* Google Maps Embed */}
  <div className="glass rounded-2xl overflow-hidden">
- <iframe
- src="[WEBSITE]/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1629814256789!5m2!1sen!2sus"
- width="100%"
- height="100%"
-
- allowFullScreen
- loading="lazy"
- referrerPolicy="no-referrer-when-downgrade"
- title="ArcticAir HVAC service area map"
- />
+ <div className="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm">Map View</div>
  </div>
  </div>
  </div>
