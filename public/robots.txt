@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hvac.com.com/sitemap.xml
