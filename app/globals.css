@@ -15,6 +15,16 @@
   --border-default: rgba(0,0,0,0.1);
   --border-subtle: rgba(0,0,0,0.05);
   --border-hover: rgba(0,0,0,0.2);
+  --cyan: #00f0ff;
+  --dark: #0a0a0a;
+  --dark-border: #2a2a2a;
+  --dark-border-light: #e5e5e5;
+  --dark-card: #1a1a1a;
+  --dark-surface: #141414;
+  --glow-lg: 0 0 20px rgba(37,99,235,0.3);
+  --glow-md: 0 0 20px rgba(37,99,235,0.3);
+  --glow-sm: 0 0 20px rgba(37,99,235,0.3);
+  --text-muted: #888888;
 }
 /* FONTS_INJECTED */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
