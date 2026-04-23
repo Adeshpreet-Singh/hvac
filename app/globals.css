@@ -1,3 +1,12 @@
+/* FONTS_INJECTED */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+:root {
+  --font-heading: 'Inter', serif;
+  --font-body: 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+body { font-family: var(--font-body); }
+
 /* ArcticAir HVAC — Professional Dark Design System */
 /* Colors: Dark #0a0a0a, Cyan #00e5ff | Fonts: Saira Condensed + Inter */
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -20,21 +29,13 @@
 /* CSS CUSTOM PROPERTIES     */
 /* ========================= */
 :root {
-  --cyan: #00e5ff;
-  --cyan-rgb: 0, 229, 255;
-  --dark: #0a0a0a;
-  --dark-surface: #111111;
-  --dark-card: #141414;
-  --dark-border: #1e1e1e;
-  --dark-border-light: #2a2a2a;
-  --text-primary: #ffffff;
-  --text-secondary: #c0c0c0;
-  --text-muted: #999999;
-  --font-heading: 'Saira Condensed', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --glow-sm: 0 0 10px rgba(0, 229, 255, 0.25);
-  --glow-md: 0 0 20px rgba(0, 229, 255, 0.35), 0 0 40px rgba(0, 229, 255, 0.15);
-  --glow-lg: 0 0 30px rgba(0, 229, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.25);
+  --primary: #374151;
+  --secondary: #4b5563;
+  --accent: #f59e0b;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
 }
 
 /* ========================= */
@@ -1230,8 +1231,8 @@ h1, h2, h3, h4, h5, h6 {
 /* REVEAL ANIMATIONS         */
 /* ========================= */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
@@ -1407,3 +1408,13 @@ section, .section { margin-bottom: 0; }
 .vt-md { margin-top: 2.5rem; margin-bottom: 2.5rem; }
 .vt-lg { margin-top: 4rem; margin-bottom: 4rem; }
 .vt-xl { margin-top: 5rem; margin-bottom: 5rem; }
+/* DESIGN_SYSTEM_INJECTED */
+body {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+.bg-primary { background-color: #374151 !important; }
+.bg-secondary { background-color: #4b5563 !important; }
+.text-primary { color: #374151 !important; }
+.text-accent { color: #f59e0b !important; }
+.bg-accent { background-color: #f59e0b !important; }
