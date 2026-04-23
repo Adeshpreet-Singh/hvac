@@ -17,11 +17,11 @@ export default function Home() {
 
  const services = [
  { title: 'AC Installation', desc: 'High-efficiency central air, ductless mini-splits, and heat pump systems. Energy Star certified units.', price: 'From $3,499', icon: '❄️' },
- { title: 'Heating Systems', desc: 'Furnace installation, boiler services, and radiant heating for year-round comfort.', price: 'From $2,999', icon: '🔥' },
- { title: 'Repair & Service', desc: 'Fast diagnostics and repairs for all brands. Same-day service for no-heat/no-cool emergencies.', price: 'From $89', icon: '🔧' },
+ { title: 'Heating Systems', desc: 'Furnace installation, boiler services, and radiant heating for year-round comfort.', price: 'From $2,999', icon: '' },
+ { title: 'Repair & Service', desc: 'Fast diagnostics and repairs for all brands. Same-day service for no-heat/no-cool emergencies.', price: 'From $89', icon: '' },
  { title: 'Maintenance Plans', desc: 'Seasonal tune-ups, filter changes, and preventive care to extend system life and efficiency.', price: '$19/mo', icon: '✅' },
- { title: 'Indoor Air Quality', desc: 'Air purifiers, humidifiers, UV lights, and ventilation systems for healthier indoor air.', price: 'From $299', icon: '🌬️' },
- { title: 'Ductwork Services', desc: 'Duct cleaning, sealing, and new installations for optimal airflow and efficiency.', price: 'From $399', icon: '🏗️' },
+ { title: 'Indoor Air Quality', desc: 'Air purifiers, humidifiers, UV lights, and ventilation systems for healthier indoor air.', price: 'From $299', icon: '️' },
+ { title: 'Ductwork Services', desc: 'Duct cleaning, sealing, and new installations for optimal airflow and efficiency.', price: 'From $399', icon: '️' },
  ];
 
  const plans = [
@@ -426,13 +426,13 @@ export default function Home() {
  {/* Contact Info Cards */}
  <div className="contact-info-cards">
  <div className="contact-info-card">
- <div className="contact-info-icon">📞</div>
+ <div className="contact-info-icon"></div>
  <p className="contact-info-label">24/7 Service Line</p>
               <a href="tel:+15557892665" className="contact-info-value min-h-[44px] inline-flex items-center">(555) 789-COOL</a>
  <p className="contact-info-note">Emergency calls answered anytime</p>
  </div>
  <div className="contact-info-card">
- <div className="contact-info-icon">📧</div>
+ <div className="contact-info-icon"></div>
  <p className="contact-info-label">Email Us</p>
               <a href="mailto:info@arcticairhvac.com" className="contact-info-value contact-info-value-sm min-h-[44px] inline-flex items-center">
  info@arcticairhvac.com
@@ -440,7 +440,7 @@ export default function Home() {
  <p className="contact-info-note">Response within 2 hours</p>
  </div>
  <div className="contact-info-card">
- <div className="contact-info-icon">🕐</div>
+ <div className="contact-info-icon"></div>
  <p className="contact-info-label">Business Hours</p>
  <div className="contact-info-value-sm">
  <p>Mon-Fri: 7AM - 8PM</p>
@@ -646,25 +646,25 @@ export default function Home() {
  <ul className="footer-list">
  <li>
               <a href="tel:+15557892665" className="footer-link min-h-[44px] inline-flex items-center">
-                📞 (555) 789-COOL
+                 (555) 789-COOL
               </a>
  </li>
  <li>
               <a href="mailto:info@arcticairhvac.com" className="footer-link min-h-[44px] inline-flex items-center">
- 📧 info@arcticairhvac.com
+  info@arcticairhvac.com
  </a>
  </li>
  <li className="text-slate-text">
- 📍 Entire Metro Region
+  Entire Metro Region
  </li>
  <li className="text-slate-text">
- 🕐 Mon-Fri: 7AM - 8PM
+  Mon-Fri: 7AM - 8PM
  </li>
  <li className="text-slate-text">
- 🕐 Sat: 8AM - 5PM | Sun: 9AM - 3PM
+  Sat: 8AM - 5PM | Sun: 9AM - 3PM
  </li>
         <li className="text-neon font-bold">
-          🚨 24/7 Emergency Service
+           24/7 Emergency Service
         </li>
         <li>
           <a href="/privacy-policy" className="footer-link py-1 min-h-[44px] flex items-center">Privacy Policy</a>
