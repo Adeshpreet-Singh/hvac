@@ -4,9 +4,9 @@
   --bg-canvas: #f3f4f6;
   --bg-panel: #ffffff;
   --bg-elevated: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-tertiary: #6b7280;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b8c4;
+  --text-tertiary: #8899aa;
   --accent-brand: #f59e0b;
   --accent-interactive: #4b5563;
   --surface-translucent: rgba(255,255,255,0.08);
@@ -219,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .emergency-text {
   font-family: var(--font-heading);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -851,7 +851,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .plan-btn-outline {
-  background: transparent;
+  background: rgba(0, 229, 255, 0.05);
   color: var(--text-primary);
   border: 2px solid var(--cyan);
 }
@@ -1104,8 +1104,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-input {
-  background: var(--dark);
-  border: 1px solid var(--dark-border);
+  background: #141414;
+  border: 1px solid #3a3a3a;
   border-radius: 4px;
   color: var(--text-primary);
   padding: 14px 16px;
@@ -1122,7 +1122,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-input::placeholder {
-  color: var(--text-muted);
+  color: #777;
 }
 
 .form-textarea {
@@ -1422,13 +1422,3 @@ section, .section { margin-bottom: 0; }
 .vt-md { margin-top: 2.5rem; margin-bottom: 2.5rem; }
 .vt-lg { margin-top: 4rem; margin-bottom: 4rem; }
 .vt-xl { margin-top: 5rem; margin-bottom: 5rem; }
-/* DESIGN_SYSTEM_INJECTED */
-body {
-  background-color: #f3f4f6;
-  color: #111827;
-}
-.bg-primary { background-color: #374151 !important; }
-.bg-secondary { background-color: #4b5563 !important; }
-.text-primary { color: #374151 !important; }
-.text-accent { color: #f59e0b !important; }
-.bg-accent { background-color: #f59e0b !important; }

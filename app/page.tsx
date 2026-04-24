@@ -15,14 +15,14 @@ export default function Home() {
  setMenuOpen(false);
  };
 
- const services = [
- { title: 'AC Installation', desc: 'High-efficiency central air, ductless mini-splits, and heat pump systems. Energy Star certified units.', price: 'From $3,499', icon: '' },
- { title: 'Heating Systems', desc: 'Furnace installation, boiler services, and radiant heating for year-round comfort.', price: 'From $2,999', icon: '' },
- { title: 'Repair & Service', desc: 'Fast diagnostics and repairs for all brands. Same-day service for no-heat/no-cool emergencies.', price: 'From $89', icon: '' },
- { title: 'Maintenance Plans', desc: 'Seasonal tune-ups, filter changes, and preventive care to extend system life and efficiency.', price: '$19/mo', icon: '' },
- { title: 'Indoor Air Quality', desc: 'Air purifiers, humidifiers, UV lights, and ventilation systems for healthier indoor air.', price: 'From $299', icon: '' },
- { title: 'Ductwork Services', desc: 'Duct cleaning, sealing, and new installations for optimal airflow and efficiency.', price: 'From $399', icon: '' },
- ];
+const services = [
+ { title: 'AC Installation', desc: 'High-efficiency central air, ductless mini-splits, and heat pump systems. Energy Star certified units.', price: 'From $3,499', icon: '❄️' },
+ { title: 'Heating Systems', desc: 'Furnace installation, boiler services, and radiant heating for year-round comfort.', price: 'From $2,999', icon: '🔥' },
+ { title: 'Repair & Service', desc: 'Fast diagnostics and repairs for all brands. Same-day service for no-heat/no-cool emergencies.', price: 'From $89', icon: '🔧' },
+ { title: 'Maintenance Plans', desc: 'Seasonal tune-ups, filter changes, and preventive care to extend system life and efficiency.', price: '$19/mo', icon: '🛡️' },
+ { title: 'Indoor Air Quality', desc: 'Air purifiers, humidifiers, UV lights, and ventilation systems for healthier indoor air.', price: 'From $299', icon: '🌬️' },
+ { title: 'Ductwork Services', desc: 'Duct cleaning, sealing, and new installations for optimal airflow and efficiency.', price: 'From $399', icon: '📦' },
+];
 
  const plans = [
  {
@@ -71,8 +71,8 @@ export default function Home() {
  <div className="emergency-banner-inner">
  <div className="emergency-pulse-dot" aria-hidden="true" />
  <span className="emergency-text">
- 24/7 Emergency Service &mdash; Call Now:{' '}
- <a href="tel:+91 98765 43210" className="emergency-phone">+91 98765 43210</a>
+ 24/7 Emergency Service — Call Now:{' '}
+ <a href="tel:+1-800-555-0199" className="emergency-phone">+1-800-555-0199</a>
  </span>
  <button
  className="emergency-close min-h-[44px] min-w-[44px] flex items-center justify-center"
@@ -125,12 +125,12 @@ export default function Home() {
  {item}
  </button>
  ))}
- <a
- href="tel:+91 98765 43210"
- className="bg-neon text-dark px-6 py-2.5 rounded-full text-sm font-bold hover:bg-neon-dim transition-colors focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2"
- >
- Free Estimate
- </a>
+<a
+href="tel:+1-800-555-0199"
+className="bg-neon text-dark px-6 py-2.5 rounded-full text-sm font-bold hover:bg-neon-dim transition-colors focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2"
+>
+Free Estimate
+</a>
  </div>
 
  <button
@@ -160,12 +160,12 @@ export default function Home() {
  {item}
  </button>
  ))}
- <a
- href="tel:+91 98765 43210"
- className="block w-full text-center bg-neon text-dark px-6 py-4 rounded-full font-bold min-h-[48px] flex items-center justify-center"
- >
- Free Estimate
- </a>
+<a
+href="tel:+1-800-555-0199"
+className="block w-full text-center bg-neon text-dark px-6 py-4 rounded-full font-bold min-h-[48px] flex items-center justify-center"
+>
+Free Estimate
+</a>
  </div>
  )}
  </nav>
@@ -173,7 +173,7 @@ export default function Home() {
 
  <main id="main-content" role="main">
  {/* Hero Section */}
- <section id="hero" aria-labelledby="hero-heading" className="pt-32 pb-16 relative overflow-hidden grid-bg">
+ <section id="hero" aria-labelledby="hero-heading" className="pt-40 pb-16 relative overflow-hidden grid-bg">
  <div className="absolute inset-0" aria-hidden="true">
  <div className="absolute top-20 right-20 w-96 h-96 bg-neon/10 rounded-full blur-[120px]" />
  <div className="absolute bottom-20 left-20 w-64 h-64 bg-neon/5 rounded-full blur-[100px]" />
@@ -200,12 +200,12 @@ export default function Home() {
  >
  Free Estimate
  </a>
- <a
- href="tel:+91 98765 43210"
- className="border-2 border-neon/50 text-neon px-8 py-4 rounded-full text-lg font-bold hover:bg-neon/10 transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 min-h-[48px] inline-flex items-center"
- >
- Emergency: 24/7
- </a>
+<a
+href="tel:+1-800-555-0199"
+className="border-2 border-neon/50 text-neon px-8 py-4 rounded-full text-lg font-bold hover:bg-neon/10 transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2 min-h-[48px] inline-flex items-center"
+>
+Emergency: 24/7
+</a>
  </div>
  <div className="flex items-center gap-6 md:gap-8">
  {[
@@ -223,7 +223,7 @@ export default function Home() {
  <div className="relative">
  <div className="glass rounded-3xl p-8 neon-glow">
  <img
- src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80"
+ src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80"
  alt="HVAC technician servicing an air conditioning unit"
  className="w-full rounded-2xl opacity-90"
  />
@@ -330,14 +330,14 @@ export default function Home() {
  technicians are factory-trained on all major brands and committed to energy-efficient solutions.
  </p>
  <div className="grid grid-cols-2 gap-4 mb-8">
- {[
- { icon: '', text: 'NATE Certified' },
- { icon: '', text: 'Energy Star Partner' },
- { icon: '', text: 'All Brands Serviced' },
- { icon: '', text: 'Financing Available' },
- { icon: '', text: '10-Year Warranty' },
- { icon: '', text: '24/7 Emergency' },
- ].map((item, i) => (
+{[
+ { icon: '✓', text: 'NATE Certified' },
+ { icon: '✓', text: 'Energy Star Partner' },
+ { icon: '✓', text: 'All Brands Serviced' },
+ { icon: '✓', text: 'Financing Available' },
+ { icon: '✓', text: '10-Year Warranty' },
+ { icon: '✓', text: '24/7 Emergency' },
+].map((item, i) => (
  <div key={i} className="flex items-center gap-2">
  <span className="text-neon" aria-hidden="true">{item.icon}</span>
  <span className="text-sm text-white-soft">{item.text}</span>
@@ -377,7 +377,7 @@ export default function Home() {
  ))}
  </div>
  <p className="areas-note">
- Don&apos;t see your area? <a href="tel:+91 98765 43210" className="text-neon hover:underline">Call us</a> — we likely serve your neighborhood too.
+ Don't see your area? <a href="tel:+1-800-555-0199" className="text-neon hover:underline">Call us</a> — we likely serve your neighborhood too.
  </p>
  </div>
  </section>
@@ -395,11 +395,11 @@ export default function Home() {
  {testimonials.map((t, i) => (
  <article key={i} className="glass rounded-2xl p-6">
  <div className="flex gap-1 mb-4" aria-label={`${t.rating} out of 5 stars`}>
- {[...Array(t.rating)].map((_, j) => (
- <span key={j} className="text-amber" aria-hidden="true"></span>
- ))}
+{[...Array(t.rating)].map((_, j) => (
+<span key={j} className="text-amber" aria-hidden="true">★</span>
+))}
  </div>
- <p className="text-white-soft mb-6 italic leading-relaxed">&ldquo;{t.text}&rdquo;</p>
+ <p className="text-white-soft mb-6 italic leading-relaxed">"{t.text}"</p>
  <div>
  <p className="font-bold text-white">{t.name}</p>
  <p className="text-sm text-slate-text">{t.role}</p>
@@ -419,29 +419,29 @@ export default function Home() {
  Request Your Free Estimate
  </h2>
  <p className="text-slate-text max-w-2xl mx-auto">
- Tell us about your heating and cooling needs. We&apos;ll provide a detailed estimate with energy-saving recommendations.
+ Tell us about your heating and cooling needs. We'll provide a detailed estimate with energy-saving recommendations.
  </p>
  </div>
 
  {/* Contact Info Cards */}
- <div className="contact-info-cards">
- <div className="contact-info-card">
- <div className="contact-info-icon"></div>
- <p className="contact-info-label">24/7 Service Line</p>
- <a href="tel:+91 98765 43210" className="contact-info-value min-h-[44px] inline-flex items-center">+91 98765 43210</a>
- <p className="contact-info-note">Emergency calls answered anytime</p>
- </div>
- <div className="contact-info-card">
- <div className="contact-info-icon"></div>
- <p className="contact-info-label">Email Us</p>
- <a href="mailto:[EMAIL]" className="contact-info-value contact-info-value-sm min-h-[44px] inline-flex items-center">
- [EMAIL]
- </a>
- <p className="contact-info-note">Response within 2 hours</p>
- </div>
- <div className="contact-info-card">
- <div className="contact-info-icon"></div>
- <p className="contact-info-label">Business Hours</p>
+<div className="contact-info-cards">
+<div className="contact-info-card">
+<div className="contact-info-icon">📞</div>
+<p className="contact-info-label">24/7 Service Line</p>
+<a href="tel:+1-800-555-0199" className="contact-info-value min-h-[44px] inline-flex items-center">+1-800-555-0199</a>
+<p className="contact-info-note">Emergency calls answered anytime</p>
+</div>
+<div className="contact-info-card">
+<div className="contact-info-icon">✉️</div>
+<p className="contact-info-label">Email Us</p>
+<a href="mailto:service@arcticairhvac.com" className="contact-info-value contact-info-value-sm min-h-[44px] inline-flex items-center">
+service@arcticairhvac.com
+</a>
+<p className="contact-info-note">Response within 2 hours</p>
+</div>
+<div className="contact-info-card">
+<div className="contact-info-icon">🕐</div>
+<p className="contact-info-label">Business Hours</p>
  <div className="contact-info-value-sm">
  <p>Mon-Fri: 7AM - 8PM</p>
  <p>Sat: 8AM - 5PM</p>
@@ -459,7 +459,7 @@ export default function Home() {
  <div className="form-success-icon"></div>
  <h3 className="form-success-title">Thank You!</h3>
  <p className="form-success-text">
- We&apos;ve received your estimate request. A comfort specialist will contact you within 1 business hour.
+ We've received your estimate request. A comfort specialist will contact you within 1 business hour.
  </p>
  <button
  onClick={() => setFormSubmitted(false)}
@@ -475,7 +475,7 @@ export default function Home() {
  className="estimate-form"
  onSubmit={() => setFormSubmitted(true)}
  >
- <input type="hidden" name="access_key" value="[WEB3FORMS_KEY]" />
+ <input type="hidden" name="access_key" value="00000000-0000-0000-0000-000000000000" />
  <input type="hidden" name="subject" value="New HVAC Estimate Request from ArcticAir Website" />
  <input type="checkbox" name="botcheck" className="hidden" />
 
@@ -516,7 +516,7 @@ export default function Home() {
  name="phone"
  type="tel"
  required
- placeholder="+91 98765 43210"
+ placeholder="+1-800-555-0199"
  autoComplete="tel"
  aria-required="true"
  className="form-input"
@@ -560,7 +560,7 @@ export default function Home() {
 
  {/* Google Maps Embed */}
  <div className="glass rounded-2xl overflow-hidden">
- <div className="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm">Map View</div>
+ <div className="w-full h-64 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg flex items-center justify-center text-[#666] text-sm">Map View</div>
  </div>
  </div>
  </div>
@@ -569,7 +569,7 @@ export default function Home() {
 
  {/* WhatsApp Floating Button */}
  <a
- href="https://wa.me/+91 98765 43210?text=Hi%20ArcticAir%2C%20I%27d%20like%20to%20request%20an%20HVAC%20estimate."
+ href="https://wa.me/+18005550199?text=Hi%20ArcticAir%2C%20I%27d%20like%20to%20request%20an%20HVAC%20estimate."
  target="_blank"
  rel="noopener noreferrer"
  aria-label="Chat with us on WhatsApp"
@@ -592,18 +592,21 @@ export default function Home() {
  Energy Star partner, and your trusted HVAC experts available 24/7.
  </p>
  <div className="flex gap-4 mt-4">
- <a href="[WEBSITE]" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-slate-text hover:text-neon transition-colors">
- <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
- </a>
- <a href="[WEBSITE]" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-slate-text hover:text-neon transition-colors">
- <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
- </a>
- <a href="[WEBSITE]" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-slate-text hover:text-neon transition-colors">
- <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
- </a>
- <a href="[WEBSITE]" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-text hover:text-neon transition-colors">
- <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
- </a>
+<a href="https://facebook.com/arcticairhvac" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-neon transition-colors">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a>
+<a href="https://x.com/arcticairhvac" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-white hover:text-neon transition-colors">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a>
+<a href="https://facebook.com/arcticairhvac" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-neon transition-colors">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a>
+<a href="https://instagram.com/arcticairhvac" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-neon transition-colors">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a>
+<a href="https://linkedin.com/company/arcticairhvac" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-neon transition-colors">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
  </div>
  </div>
 
@@ -627,7 +630,7 @@ export default function Home() {
  <li><button onClick={() => scrollToSection('plans')} className="footer-link py-1 min-h-[44px] flex items-center">Maintenance Plans</button></li>
  <li><button onClick={() => scrollToSection('reviews')} className="footer-link py-1 min-h-[44px] flex items-center">Reviews</button></li>
  <li><button onClick={() => scrollToSection('contact')} className="footer-link py-1 min-h-[44px] flex items-center">Contact</button></li>
- <li><a href="tel:+91 98765 43210" className="footer-link py-1 min-h-[44px] flex items-center">Emergency Service</a></li>
+ <li><a href="tel:+1-800-555-0199" className="footer-link py-1 min-h-[44px] flex items-center">Emergency Service</a></li>
  </ul>
  </div>
 
@@ -636,14 +639,14 @@ export default function Home() {
  <h3 className="footer-heading">Contact</h3>
  <ul className="footer-list">
  <li>
- <a href="tel:+91 98765 43210" className="footer-link min-h-[44px] inline-flex items-center">
- +91 98765 43210
+<a href="tel:+1-800-555-0199" className="footer-link min-h-[44px] inline-flex items-center">
++1-800-555-0199
  </a>
  </li>
  <li>
- <a href="mailto:[EMAIL]" className="footer-link min-h-[44px] inline-flex items-center">
- [EMAIL]
- </a>
+<a href="mailto:service@arcticairhvac.com" className="footer-link min-h-[44px] inline-flex items-center">
+service@arcticairhvac.com
+</a>
  </li>
  <li className="text-slate-text">
  Entire Metro Region
